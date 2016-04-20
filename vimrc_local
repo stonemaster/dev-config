@@ -3,7 +3,9 @@ autocmd BufNewFile,BufReadPost *.dt set filetype=pug
 autocmd FileType markdown setlocal cc=48
 autocmd FileType markdown setlocal spell spelllang=en_gb
 
+" D specific additions
 map <Leader>d :DUjump<CR>
+map <Leader>dc :DUddoc<CR>
 
 " Mac specific
 let g:dutyl_stdImportPaths=['/usr/local/Cellar/dmd/2.070.2/include/dlang/dmd/']
