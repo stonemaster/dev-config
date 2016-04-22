@@ -7,6 +7,8 @@ autocmd FileType markdown setlocal spell spelllang=en_gb
 map <Leader>d :DUjump<CR>
 map <Leader>dc :DUddoc<CR>
 
+set smartcase
+
 " Mac specific
 " let g:dutyl_stdImportPaths=['/usr/local/Cellar/dmd/2.070.2/include/dlang/dmd/']
 " set guifont=Menlo\ Regular:h14
