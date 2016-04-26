@@ -4,8 +4,8 @@ autocmd FileType markdown setlocal cc=48
 autocmd FileType markdown setlocal spell spelllang=en_gb
 
 " D specific additions
-map <Leader>d :DUjump<CR>
-map <Leader>dc :DUddoc<CR>
+map <F2> :DUjump<CR>
+map <F1> :DUddoc<CR>
 
 set smartcase
 
