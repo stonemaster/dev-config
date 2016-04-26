@@ -9,6 +9,9 @@ map <F1> :DUddoc<CR>
 
 set smartcase
 
+" Linux specific
+let g:dutyl_stdImportPaths=['/usr/include/dmd/druntime/import/','/usr/include/dmd/phobos/']
+
 " Mac specific
 " let g:dutyl_stdImportPaths=['/usr/local/Cellar/dmd/2.070.2/include/dlang/dmd/']
 " set guifont=Menlo\ Regular:h14
