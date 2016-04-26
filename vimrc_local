@@ -4,8 +4,12 @@ autocmd FileType markdown setlocal cc=48
 autocmd FileType markdown setlocal spell spelllang=en_gb
 
 " D specific additions
-map <F2> :DUjump<CR>
-map <F1> :DUddoc<CR>
+autocmd FileType d map <F2> :DUjump<CR>
+autocmd FileType d map <F1> :DUddoc<CR>
+
+" Youcomplete/C++ specific additions
+autocmd FileType cpp map <F2> :YcmCompleter GoTo<CR>
+autocmd FileType cpp map <F1> :YcmCompleter GetDoc<CR>
 
 set smartcase
 
