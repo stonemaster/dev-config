@@ -1,20 +1,21 @@
-# VIM as an IDE
+# NVIM as an IDE
 
-1. `git clone https://github.com/tlhunter/vimrc ~/.vim`
-1. create `~/.vimrc_local` 
+1. `git clone git://github.com/rafi/vim-config.git ~/.config/nvim` - see
+   https://github.com/rafi/vim-config
+1. Copy local configuration files into `~/.config/nvim`: `cp local*
+   ~/.config/nvim`
 
-# Plugins
+# Extra Plugins
 
-> `cd ~/.vim/bundle`
+1. See `local.plugins.yaml`
 
-1. YouCompleteMe
-  1. `apt-get install vim-youcompleteme` and `vam enable youcompleteme`
-  2. or : https://github.com/Valloric/YouCompleteMe
-2. vim-dutyl
-  1. `git clone git@github.com:idanarye/vim-dutyl.git` 
-3. vim-pug
-  1. `git clone git@github.com:digitaltoad/vim-pug.git` 
+# Don't forget directory local `.local.vimrc`!
 
-# .vimrc_local
+Example:
 
-See [vimrc_local](vimrc_local).
+  let
+  g:cmake_build_dir='/home/stone/build
+
+  set tabstop=4
+  autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
+

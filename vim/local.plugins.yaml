@@ -1,0 +1,7 @@
+#- { repo: vim-scripts/a.vim }
+- { repo: jackguo380/vim-lsp-cxx-highlight }
+  #- { repo: arakashic/chromatica.nvim, if: 1, merged: 0 }
+- { repo: neomake/neomake }
+  #- { repo: vhdirk/vim-cmake }
+- { repo: ilyachur/cmake4vim }
+  #- { repo: LucHermitte/lh-cpp }
