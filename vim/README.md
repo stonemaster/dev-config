@@ -13,9 +13,9 @@
 
 Example:
 
-  let
-  g:cmake_build_dir='/home/stone/build
+    let
+    g:cmake_build_dir='/home/stone/build
 
-  set tabstop=4
-  autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
+    set tabstop=4
+    autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
 
