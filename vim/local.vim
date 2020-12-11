@@ -18,14 +18,28 @@ inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
 
 set list
 set listchars=tab:>-
+set redrawtime=15000  " Time in milliseconds for stopping display redraw
 
-" header / source
-" nnoremap <F4> :A<CR>
-" inoremap <F4> <ESC>:A<CR>a
+" Override rafi default to not open vsplits
+" default currently is: set switchbuf=useopen,vsplit    " Jump to the first open window
+set switchbuf=usetab
 
-" file under cursor
-" nnoremap <F2> :IH<CR>
-" inoremap <F2> <ESC>:IH<CR>
+" Write the contents of the file, if it has been modified, on each :next,
+" :rewind, :last, :first, :previous, :stop, :suspend, :tag, :!, :make, CTRL-] 
+" and CTRL-^ command; and when a :buffer, CTRL-O, CTRL-I, '{A-Z0-9}, or `{A-Z0-9} command takes one to another file.
+" from https://stackoverflow.com/questions/12077897/autosave-buffer-on-make-in-vim
+set autowrite
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+        \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 set tabstop=4
 autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
@@ -33,27 +47,45 @@ autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
 " colorscheme one
 " set background=dark " for the dark version
 
-"nmap <silent><buffer> <F2>  <Plug>(lsp-definition)
-"nmap         <buffer> <F2>   <Plug>(lsp-rename)
+lua << EOF
 
-" let g:lsp_settings = {
-" \  'clangd': {'disabled': v:true }
-" \}
+require'lspconfig'.ccls.setup {
+ cmd = { "ccls-wrapper" }
+}
 
-" FROM: https://github.com/jackguo380/vim-lsp-cxx-highlight/blob/master/sample-configs/vim-lsp-register.vim
-"" also see https://github.com/prabirshrestha/vim-lsp/wiki/Servers-ccls
-""
-"" highlight.lsRanges = true
-"" is only necessary if vim doesn't have +byte_offset
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': {
-      \   'highlight': { 'lsRanges' : v:true },
-      \ },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
+-- require'nvim_lsp'.clangd.setup {}
 
+EOF
+
+"" require'nvim_lsp'.pyls.setup{}
+
+" Set compiler: https://vim.fandom.com/wiki/Autoselect_the_right_compiler_using_the_filetype
+au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
+
+""" Configuration for C#
+""" Partly taken and adapted from https://github.com/OmniSharp/omnisharp-vim
+
+autocmd CursorHold *.cs OmniSharpTypeLookup
+autocmd Filetype cs nmap <silent><buffer> gr             :OmniSharpFindUsages<CR>
+autocmd FileType cs nmap <silent><buffer> <C-]>          :OmniSharpGotoDefinition<CR>
+autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation<CR>
+autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
+autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
+
+"autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
+"autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+
+setlocal signcolumn=yes  "prevent text shifting with lsp errors
+"
+"" setlocal completeopt=menu,noinsert,noselect,menuone
+
+"" call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+"" \ 'name': 'omni',
+"" \ 'whitelist': ['cpp', 'python'],
+"" \ 'completor': function('asyncomplete#sources#omni#completor')
+"" \ }))

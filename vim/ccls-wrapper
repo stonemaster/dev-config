@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ccls -init='{"cache": {"directory": "/tmp/ccls-cache"}, "highlight":{"lsRanges":true}}' $*
