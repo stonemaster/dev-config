@@ -12,3 +12,15 @@
 - { repo: yami-beta/asyncomplete-omni.vim }
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
 - { repo: OmniSharp/omnisharp-vim }
+- { repo: machakann/asyncomplete-ezfilter.vim }
+
+  #- { repo: LucHermitte/lh-vim-lib }
+  #- { repo: LucHermitte/lh-style }
+  #- { repo: LucHermitte/lh-tags }
+  #- { repo: LucHermitte/lh-dev }
+  #- { repo: LucHermitte/lh-bracket }
+  #- { repo: LucHermitte/searchInRuntime }
+  #- { repo: LucHermitte/mu-template }
+  #- { repo: tomtom/stakeholders_vim }
+  #- { repo: LucHermitte/alternate-lite }
+  #- { repo: LucHermitte/lh-cpp }

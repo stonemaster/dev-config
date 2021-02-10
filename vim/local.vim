@@ -66,6 +66,7 @@ au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 """ Partly taken and adapted from https://github.com/OmniSharp/omnisharp-vim
 
 autocmd CursorHold *.cs OmniSharpTypeLookup
+autocmd FileType cs setlocal makeprg=dotnet\ build
 autocmd Filetype cs nmap <silent><buffer> gr             :OmniSharpFindUsages<CR>
 autocmd FileType cs nmap <silent><buffer> <C-]>          :OmniSharpGotoDefinition<CR>
 autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation<CR>
@@ -81,6 +82,16 @@ autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp
 "autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
+
+" Configuration of asynccomplete-ezfilter Plugin
+" Fuzzy match
+let g:asyncomplete_preprocessor =
+  \ [function('asyncomplete#preprocessor#ezfilter#filter')]
+
+let g:asyncomplete#preprocessor#ezfilter#config = {}
+let g:asyncomplete#preprocessor#ezfilter#config['*'] =
+  \ {ctx, items -> ctx.osa_filter(items, 1)}
+
 "
 "" setlocal completeopt=menu,noinsert,noselect,menuone
 
