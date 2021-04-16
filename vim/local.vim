@@ -1,5 +1,6 @@
 set number
 unmap Y
+
 let g:python3_host_prog='/usr/bin/python3'
 
 " Cmake plugin
@@ -44,8 +45,9 @@ autocmd FileChangedShellPost *
 set tabstop=4
 autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
 
-" colorscheme one
-" set background=dark " for the dark version
+" default: colorscheme hybrid
+colorscheme gruvbox
+set background=dark " for the dark version
 
 lua << EOF
 
@@ -73,6 +75,8 @@ autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation
 autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
 autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
 
+autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
+
 "autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
 "autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
 "autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
@@ -93,7 +97,7 @@ let g:asyncomplete#preprocessor#ezfilter#config['*'] =
   \ {ctx, items -> ctx.osa_filter(items, 1)}
 
 "
-"" setlocal completeopt=menu,noinsert,noselect,menuone
+"setlocal completeopt=menu,noinsert,noselect,menuone
 
 "" call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
 "" \ 'name': 'omni',

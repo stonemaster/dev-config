@@ -4,6 +4,8 @@
    https://github.com/rafi/vim-config
 1. Copy local configuration files into `~/.config/nvim`: `cp local*
    ~/.config/nvim`
+1. Copy `.vault.vim` to `~/.config/nvim`. It disables Q as a default mapping to
+   closing the window.
 
 # Extra Plugins
 
