@@ -193,11 +193,7 @@ bar {
 # Autostart block
 #
 exec --no-startup-id nm-applet
-
-exec slack
-exec skypeforlinux
-exec firefox
-exec tusk
+exec --no-startup-id autorandr -c
 
 #bar {
 #    font pango:DejaVu Sans Mono, FontAwesome 12

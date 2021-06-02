@@ -13,12 +13,15 @@
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
 - { repo: OmniSharp/omnisharp-vim }
 - { repo: machakann/asyncomplete-ezfilter.vim }
+- { repo: tpope/vim-surround }
+- { repo: kana/vim-altr, on_map: { n: <Plug> }}
 
+  #- { repo: editorconfig/editorconfig-vim }
   #- { repo: LucHermitte/lh-vim-lib }
   #- { repo: LucHermitte/lh-style }
   #- { repo: LucHermitte/lh-tags }
   #- { repo: LucHermitte/lh-dev }
-  #- { repo: LucHermitte/lh-bracket }
+  #- { repo: LucHermitte/lh-brackets }
   #- { repo: LucHermitte/searchInRuntime }
   #- { repo: LucHermitte/mu-template }
   #- { repo: tomtom/stakeholders_vim }

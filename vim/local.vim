@@ -76,6 +76,7 @@ autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
 autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
 
 autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
+autocmd FileType php setlocal noexpandtab shiftwidth=4 softtabstop=4
 
 "autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
 "autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
@@ -95,6 +96,12 @@ let g:asyncomplete_preprocessor =
 let g:asyncomplete#preprocessor#ezfilter#config = {}
 let g:asyncomplete#preprocessor#ezfilter#config['*'] =
   \ {ctx, items -> ctx.osa_filter(items, 1)}
+
+" Reimport from removed support in rafi/vim-config
+if dein#tap('vim-altr')
+	nmap <leader>n  <Plug>(altr-forward)
+	nmap <leader>N  <Plug>(altr-back)
+endif
 
 "
 "setlocal completeopt=menu,noinsert,noselect,menuone
