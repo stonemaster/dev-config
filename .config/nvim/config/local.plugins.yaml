@@ -1,13 +1,5 @@
-#- { repo: vim-scripts/a.vim }
 - { repo: jackguo380/vim-lsp-cxx-highlight }
-  #- { repo: arakashic/chromatica.nvim, if: 1, merged: 0 }
-  #- { repo: neomake/neomake }
-  #- { repo: vhdirk/vim-cmake }
 - { repo: ilyachur/cmake4vim }
-  #- { repo: LucHermitte/lh-cpp }
-  #- { repo: tpope/vim-fugitive, if: 0 }
-  #- { repo: chemzqm/vim-easygit }
-  #- { repo: mattn/vim-lsp-settings, if: 0 }
 - { repo: neovim/nvim-lsp }
 - { repo: yami-beta/asyncomplete-omni.vim }
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
@@ -15,15 +7,6 @@
 - { repo: machakann/asyncomplete-ezfilter.vim }
 - { repo: tpope/vim-surround }
 - { repo: kana/vim-altr, on_map: { n: <Plug> }}
-
-  #- { repo: editorconfig/editorconfig-vim }
-  #- { repo: LucHermitte/lh-vim-lib }
-  #- { repo: LucHermitte/lh-style }
-  #- { repo: LucHermitte/lh-tags }
-  #- { repo: LucHermitte/lh-dev }
-  #- { repo: LucHermitte/lh-brackets }
-  #- { repo: LucHermitte/searchInRuntime }
-  #- { repo: LucHermitte/mu-template }
-  #- { repo: tomtom/stakeholders_vim }
-  #- { repo: LucHermitte/alternate-lite }
-  #- { repo: LucHermitte/lh-cpp }
+- { repo: liuchengxu/vista.vim, if: 1 }
+- { repo: preservim/tagbar }
+- { repo: vim-airline/vim-airline }
