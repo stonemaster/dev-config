@@ -15,7 +15,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 ZSH_TMUX_AUTOSTART=true
 
-plugins=(git tmux fzf colored-man-pages z)
+plugins=(git
+  tmux
+  fzf
+  colored-man-pages
+  z
+  gpg-agent
+  keychain)
 
 source $ZSH/oh-my-zsh.sh
 

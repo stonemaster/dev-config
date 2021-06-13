@@ -189,6 +189,9 @@ bar {
         position top
 }
 
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness 
+
 #
 # Autostart block
 #
