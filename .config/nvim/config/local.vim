@@ -5,7 +5,7 @@ let g:python3_host_prog='/usr/bin/python3'
 
 " Cmake plugin
 let g:cmake_build_type="Debug"
-let g:cmake_project_generator="Ninja"
+let g:cmake_usr_args="-GNinja"
 let g:cmake_compile_commands=1
 
 nnoremap <silent> <PageUp> <C-U><C-U>
