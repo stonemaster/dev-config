@@ -65,14 +65,14 @@ au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 """ Configuration for C#
 """ Partly taken and adapted from https://github.com/OmniSharp/omnisharp-vim
 
-autocmd CursorHold *.cs OmniSharpTypeLookup
-autocmd FileType cs setlocal makeprg=dotnet\ build
-autocmd Filetype cs nmap <silent><buffer> gr             :OmniSharpFindUsages<CR>
-autocmd FileType cs nmap <silent><buffer> <C-]>          :OmniSharpGotoDefinition<CR>
-autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation<CR>
-autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
-autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
-
+" autocmd CursorHold *.cs OmniSharpTypeLookup
+" autocmd FileType cs setlocal makeprg=dotnet\ build
+" autocmd Filetype cs nmap <silent><buffer> gr             :OmniSharpFindUsages<CR>
+" autocmd FileType cs nmap <silent><buffer> <C-]>          :OmniSharpGotoDefinition<CR>
+" autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation<CR>
+" autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
+" autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
+" 
 autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType php setlocal noexpandtab shiftwidth=4 softtabstop=4
 

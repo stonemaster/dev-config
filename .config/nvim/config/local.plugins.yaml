@@ -3,7 +3,7 @@
 #- { repo: neovim/nvim-lsp }
 - { repo: yami-beta/asyncomplete-omni.vim }
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
-- { repo: OmniSharp/omnisharp-vim }
+# - { repo: OmniSharp/omnisharp-vim }
 - { repo: machakann/asyncomplete-ezfilter.vim }
 - { repo: tpope/vim-surround }
 - { repo: kana/vim-altr, on_map: { n: <Plug> }}
