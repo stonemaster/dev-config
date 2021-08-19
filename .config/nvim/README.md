@@ -13,11 +13,6 @@
 
 # Don't forget directory local `.local.vimrc`!
 
-1. `cclswrapper`
-
-Small wrapper script to correctly setup hightlighting using CCLS language
-server.
-
 Example:
 
     let

@@ -1,12 +1,12 @@
 - { repo: jackguo380/vim-lsp-cxx-highlight }
 - { repo: ilyachur/cmake4vim }
-- { repo: neovim/nvim-lsp }
+#- { repo: neovim/nvim-lsp }
 - { repo: yami-beta/asyncomplete-omni.vim }
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
 - { repo: OmniSharp/omnisharp-vim }
 - { repo: machakann/asyncomplete-ezfilter.vim }
 - { repo: tpope/vim-surround }
 - { repo: kana/vim-altr, on_map: { n: <Plug> }}
-- { repo: liuchengxu/vista.vim, if: 1 }
+#- { repo: liuchengxu/vista.vim, if: 1 }
 - { repo: preservim/tagbar }
 - { repo: vim-airline/vim-airline }

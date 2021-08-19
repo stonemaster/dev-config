@@ -7,6 +7,7 @@ let g:python3_host_prog='/usr/bin/python3'
 let g:cmake_build_type="Debug"
 let g:cmake_usr_args="-GNinja"
 let g:cmake_compile_commands=1
+let g:enable_universal_quit_mapping = 0
 
 nnoremap <silent> <PageUp> <C-U><C-U>
 vnoremap <silent> <PageUp> <C-U><C-U>
@@ -15,7 +16,6 @@ inoremap <silent> <PageUp> <C-\><C-O><C-U><C-\><C-O><C-U>
 nnoremap <silent> <PageDown> <C-D><C-D>
 vnoremap <silent> <PageDown> <C-D><C-D>
 inoremap <silent> <PageDown> <C-\><C-O><C-D><C-\><C-O><C-D>
-
 
 set list
 set listchars=tab:>-
@@ -49,17 +49,15 @@ autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
 colorscheme gruvbox
 set background=dark " for the dark version
 
-lua << EOF
-
-require'lspconfig'.ccls.setup {
- cmd = { "ccls-wrapper" }
-}
-
--- require'nvim_lsp'.clangd.setup {}
-
-EOF
-
-"" require'nvim_lsp'.pyls.setup{}
+" lua << EOF
+" 
+" require'lspconfig'.ccls.setup {
+"  cmd = { "ccls-wrapper" }
+" }
+" 
+" -- require'nvim_lsp'.clangd.setup {}
+" 
+" EOF
 
 " Set compiler: https://vim.fandom.com/wiki/Autoselect_the_right_compiler_using_the_filetype
 au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
@@ -102,12 +100,3 @@ if dein#tap('vim-altr')
 	nmap <leader>n  <Plug>(altr-forward)
 	nmap <leader>N  <Plug>(altr-back)
 endif
-
-"
-"setlocal completeopt=menu,noinsert,noselect,menuone
-
-"" call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-"" \ 'name': 'omni',
-"" \ 'whitelist': ['cpp', 'python'],
-"" \ 'completor': function('asyncomplete#sources#omni#completor')
-"" \ }))
