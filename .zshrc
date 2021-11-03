@@ -20,8 +20,10 @@ plugins=(git
   fzf
   colored-man-pages
   z
+  ssh-agent
   gpg-agent
-  keychain)
+  autojump
+)
 
 source $ZSH/oh-my-zsh.sh
 
