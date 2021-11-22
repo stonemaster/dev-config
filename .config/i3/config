@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -189,14 +189,16 @@ bar {
         position top
 }
 
-bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness 
-
 #
 # Autostart block
 #
 exec --no-startup-id nm-applet
 exec --no-startup-id autorandr -c
+exec --no-startup-id pasystray
+exec --no-startup-id blueman-tray
+
+#exec slack
+#exec skypeforlinux
 
 #bar {
 #    font pango:DejaVu Sans Mono, FontAwesome 12

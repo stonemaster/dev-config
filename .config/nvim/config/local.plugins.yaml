@@ -1,4 +1,3 @@
-- { repo: jackguo380/vim-lsp-cxx-highlight }
 - { repo: ilyachur/cmake4vim }
 #- { repo: neovim/nvim-lsp }
 - { repo: yami-beta/asyncomplete-omni.vim }
