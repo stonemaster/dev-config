@@ -9,3 +9,4 @@
 #- { repo: liuchengxu/vista.vim, if: 1 }
 - { repo: preservim/tagbar }
 - { repo: vim-airline/vim-airline }
+- { repo: brooth/far.vim }

@@ -9,10 +9,9 @@ fi
 export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/andre/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 ZSH_TMUX_AUTOSTART=true
 
 plugins=(git
@@ -27,11 +26,14 @@ plugins=(git
 
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 EDITOR=vim
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias icat="kitty +kitten icat"
+
+# environment specific sourcing
+[[ ! -f ~/.zshrc.work ]] || source ~/.zshrc.work
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
