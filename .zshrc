@@ -27,6 +27,7 @@ plugins=(git
 source $ZSH/oh-my-zsh.sh
 
 EDITOR=vim
+export CLANGD_FLAGS="-header-insertion=never"
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'

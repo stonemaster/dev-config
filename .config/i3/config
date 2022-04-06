@@ -195,7 +195,7 @@ bar {
 exec --no-startup-id nm-applet
 exec --no-startup-id autorandr -c
 exec --no-startup-id pasystray
-exec --no-startup-id blueman-tray
+exec --no-startup-id blueman-applet
 
 #exec slack
 #exec skypeforlinux

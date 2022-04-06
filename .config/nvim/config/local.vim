@@ -49,6 +49,11 @@ autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
 colorscheme gruvbox
 set background=dark " for the dark version
 
+lua << EOF
+require('refactoring').setup({})
+require('telescope').load_extension("refactoring")
+EOF
+
 " lua << EOF
 " 
 " require'lspconfig'.ccls.setup {
@@ -144,7 +149,7 @@ function! DoCompactXML()
   " XML that may contain multiple top-level elements.
   0put ='<PrettyXML>'
   $put ='</PrettyXML>'
-  silent %!xmllint --encode utf-8 --noblanks -
+  silent %!xmllint --encode utf-8 --noblanks - 2>/dev/null
   " xmllint will insert an <?xml?> header. it's easy enough to delete
   " if you don't want it.
   " delete the fake tags

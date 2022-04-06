@@ -10,3 +10,10 @@
 - { repo: preservim/tagbar }
 - { repo: vim-airline/vim-airline }
 - { repo: brooth/far.vim }
+- repo: ThePrimeagen/refactoring.nvim
+  depends: [ nvim-treesitter, plenary.vim ]
+  hook_post_source: |-
+    lua require('refactoring').setup({})
+    lua require('telescope').load_extension("refactoring")
+  hook_add: |-
+    lua vim.api.nvim_set_keymap("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",	{ noremap = true })
