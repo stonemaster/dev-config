@@ -67,27 +67,8 @@ EOF
 " Set compiler: https://vim.fandom.com/wiki/Autoselect_the_right_compiler_using_the_filetype
 au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 
-""" Configuration for C#
-""" Partly taken and adapted from https://github.com/OmniSharp/omnisharp-vim
-
-" autocmd CursorHold *.cs OmniSharpTypeLookup
-" autocmd FileType cs setlocal makeprg=dotnet\ build
-" autocmd Filetype cs nmap <silent><buffer> gr             :OmniSharpFindUsages<CR>
-" autocmd FileType cs nmap <silent><buffer> <C-]>          :OmniSharpGotoDefinition<CR>
-" autocmd FileType cs nnoremap <silent><buffer> K          :OmniSharpDocumentation<CR>
-" autocmd FileType cs nmap <buffer>         <Leader>rn     :OmniSharpRename<CR>
-" autocmd FileType cs nmap <silent><buffer> ,s             :OmniSharpSignatureHelp<CR>
-" 
 autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType php setlocal noexpandtab shiftwidth=4 softtabstop=4
-
-"autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
-"autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
 

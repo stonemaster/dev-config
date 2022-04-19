@@ -33,8 +33,14 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias icat="kitty +kitten icat"
 
+function gitpurgemerged() {
+  git fetch --all --prune
+  git branch -vv | grep ': gone\]' | grep -Eo '\[[^:]+: gone\]' | cut -f1 -d':' | sed 's/\[origin\///g' | xargs git branch -D
+}
+
 # environment specific sourcing
 [[ ! -f ~/.zshrc.work ]] || source ~/.zshrc.work
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
