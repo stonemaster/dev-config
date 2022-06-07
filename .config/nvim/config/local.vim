@@ -69,6 +69,8 @@ au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 
 autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType php setlocal noexpandtab shiftwidth=4 softtabstop=4
+" enable comment spell checking through lewis6991/spellsitter.nvim
+autocmd FileType cpp setlocal spell
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
 

@@ -10,6 +10,11 @@
 - { repo: preservim/tagbar }
 - { repo: vim-airline/vim-airline }
 - { repo: brooth/far.vim }
+# - { repo: jackguo380/vim-lsp-cxx-highlight }
+- repo: lewis6991/spellsitter.nvim
+  depends: [ nvim-treesitter ]
+  hook_post_source: |-
+    lua require('spellsitter').setup()
 - repo: ThePrimeagen/refactoring.nvim
   depends: [ nvim-treesitter, plenary.vim ]
   hook_post_source: |-
