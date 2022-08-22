@@ -261,4 +261,8 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+# Allow to copy and print screen
+bindsym Control+Print exec grimshot copy area
+
+
 include /etc/sway/config.d/*
