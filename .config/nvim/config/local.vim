@@ -71,6 +71,7 @@ autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
 autocmd FileType php setlocal noexpandtab shiftwidth=4 softtabstop=4
 " enable comment spell checking through lewis6991/spellsitter.nvim
 autocmd FileType cpp setlocal spell
+autocmd FileType dart lua require'lspconfig'.dartls.setup{}
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
 
@@ -82,12 +83,6 @@ let g:asyncomplete_preprocessor =
 let g:asyncomplete#preprocessor#ezfilter#config = {}
 let g:asyncomplete#preprocessor#ezfilter#config['*'] =
   \ {ctx, items -> ctx.osa_filter(items, 1)}
-
-" Reimport from removed support in rafi/vim-config
-if dein#tap('vim-altr')
-	nmap <leader>n  <Plug>(altr-forward)
-	nmap <leader>N  <Plug>(altr-back)
-endif
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
