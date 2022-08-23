@@ -75,6 +75,13 @@ autocmd FileType dart lua require'lspconfig'.dartls.setup{}
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
 
+" Reimport from removed support in rafi/vim-config
+if dein#tap('vim-altr')
+       nmap <leader>n  <Plug>(altr-forward)
+       nmap <leader>N  <Plug>(altr-back)
+endif
+
+
 " Configuration of asynccomplete-ezfilter Plugin
 " Fuzzy match
 let g:asyncomplete_preprocessor =
