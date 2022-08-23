@@ -33,6 +33,7 @@ export CLANGD_FLAGS="-header-insertion=never --inlay-hints=true --offset-encodin
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias icat="kitty +kitten icat"
+alias vimwiki="vim +VimwikiIndex"
 
 function gitpurgemerged() {
   git fetch --all --prune

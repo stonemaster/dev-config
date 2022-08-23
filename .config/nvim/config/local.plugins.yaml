@@ -25,4 +25,4 @@
   depends: [ nvim-treesitter ]
   hook_post_source: |-
     lua require('iswap').setup{}
-
+- repo: fidian/hexmode
