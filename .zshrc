@@ -23,6 +23,7 @@ plugins=(git
   gpg-agent
   autojump
   kubectl
+  kubetail
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -38,6 +39,18 @@ alias vimwiki="vim +VimwikiIndex"
 function gitpurgemerged() {
   git fetch --all --prune
   git branch -vv | grep ': gone\]' | grep -Eo '\[[^:]+: gone\]' | cut -f1 -d':' | sed 's/\[origin\///g' | xargs git branch -D
+}
+
+function updatenvim() {
+  local url="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+  local etagfile="${HOME}/.local/state/nvim/nvim.etag"
+  etag=$(curl -L --head ${url} 2>/dev/null | grep -i 'etag:' | cut -f2 -d':' | tr -d $'\r')
+  if ! diff -q ${etagfile} <(echo ${etag}) 2>/dev/null>/dev/null; then
+    echo "NVIM is going to be updated (Etag: ${etag})"
+    sudo wget -O /usr/local/bin/nvim.appimage ${url} && echo ${etag} > ${etagfile}
+  else
+    echo "NVIM already up-to-date (Etag: ${etag})"
+  fi
 }
 
 # environment specific sourcing
