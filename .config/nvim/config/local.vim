@@ -64,6 +64,22 @@ EOF
 " 
 " EOF
 
+" lua << EOF
+" require("nvim-semantic-tokens").setup {
+"   preset = "default",
+"   -- highlighters is a list of modules following the interface of nvim-semantic-tokens.table-highlighter or
+"   -- function with the signature: highlight_token(ctx, token, highlight) where
+"   --        ctx (as defined in :h lsp-handler)
+"   --        token  (as defined in :h vim.lsp.semantic_tokens.on_full())
+"   --        highlight (a helper function that you can call (also multiple times) with the determined highlight group(s) as the only parameter)
+"   highlighters = { require 'nvim-semantic-tokens.table-highlighter'}
+" }
+" EOF
+
+" if &filetype == "cpp" || &filetype == "cuda" || &filetype == "c"
+"   autocmd BufEnter,TextChanged <buffer> lua require 'vim.lsp.buf'.semantic_tokens_full()
+" endif
+
 " Set compiler: https://vim.fandom.com/wiki/Autoselect_the_right_compiler_using_the_filetype
 au BufRead * try | execute "compiler ".&filetype | catch /./ | endtry
 
@@ -104,7 +120,7 @@ function! DoPrettyXML()
   " XML that may contain multiple top-level elements.
   0put ='<PrettyXML>'
   $put ='</PrettyXML>'
-  silent %!xmllint --encode utf-8 --format -
+  silent %!xmllint --encode utf-8 --format - 2>/dev/null
   " xmllint will insert an <?xml?> header. it's easy enough to delete
   " if you don't want it.
   " delete the fake tags

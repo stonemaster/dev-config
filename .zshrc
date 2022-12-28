@@ -29,7 +29,7 @@ plugins=(git
 source $ZSH/oh-my-zsh.sh
 
 EDITOR=vim
-export CLANGD_FLAGS="-header-insertion=never --inlay-hints=true --offset-encoding=utf-16"
+export CLANGD_FLAGS="-header-insertion=never --offset-encoding=utf-16"
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
