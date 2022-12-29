@@ -1,13 +1,17 @@
+# CMake plugin with :CMake
 - { repo: ilyachur/cmake4vim }
 - { repo: yami-beta/asyncomplete-omni.vim }
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
 - { repo: OmniSharp/omnisharp-vim }
 - { repo: machakann/asyncomplete-ezfilter.vim }
 - { repo: kana/vim-altr, on_map: { n: <Plug> }}
+# Spell checking for Comments
 - repo: lewis6991/spellsitter.nvim
   depends: [ nvim-treesitter ]
   hook_post_source: |-
     lua require('spellsitter').setup()
+
+# Neovim Refactoring plugin
 - repo: ThePrimeagen/refactoring.nvim
   depends: [ nvim-treesitter, plenary.vim ]
   hook_post_source: |-
@@ -15,14 +19,26 @@
     lua require('telescope').load_extension("refactoring")
   hook_add: |-
     lua vim.api.nvim_set_keymap("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",	{ noremap = true })
+
+# Swap parameters with :ISwap*
+# https://github.com/mizlan/iswap.nvim
 - repo: mizlan/iswap.nvim
   depends: [ nvim-treesitter ]
   hook_post_source: |-
     lua require('iswap').setup{}
+
+# Hexmode plugin via `:Hexmode`
 - repo: fidian/hexmode
+
+# Inlayhints for LSP servers
+- repo: lvimuser/lsp-inlayhints.nvim
+
+
+# Semantic tokens: supported in NVIM 0.9+
+# https://github.com/theHamsta/nvim-semantic-tokens
 - repo: theHamsta/nvim-semantic-tokens
-- repo: simrat39/inlay-hints.nvim
-#- repo: lvimuser/lsp-inlayhints.nvim
+
 # - { repo: jackguo380/vim-lsp-cxx-highlight }
 #- { repo: preservim/tagbar }
 #- { repo: vim-airline/vim-airline }
+
