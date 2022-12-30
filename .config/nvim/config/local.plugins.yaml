@@ -38,6 +38,9 @@
 # https://github.com/theHamsta/nvim-semantic-tokens
 - repo: theHamsta/nvim-semantic-tokens
 
+# Markdown preview via :MarkdownPreview
+- repo: iamcco/markdown-preview.nvim
+
 # - { repo: jackguo380/vim-lsp-cxx-highlight }
 #- { repo: preservim/tagbar }
 #- { repo: vim-airline/vim-airline }
