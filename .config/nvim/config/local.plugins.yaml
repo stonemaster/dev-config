@@ -33,7 +33,6 @@
 # Inlayhints for LSP servers
 - repo: lvimuser/lsp-inlayhints.nvim
 
-
 # Semantic tokens: supported in NVIM 0.9+
 # https://github.com/theHamsta/nvim-semantic-tokens
 - repo: theHamsta/nvim-semantic-tokens

@@ -1,6 +1,12 @@
 set number
 unmap Y
 
+" Set spell check highlighting
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme * hi SpellBad cterm=reverse guifg=LightRed
+augroup END
+
 let g:python3_host_prog='/usr/bin/python3'
 
 " Cmake plugin
@@ -52,11 +58,11 @@ set background=dark " for the dark version
 lua << EOF
 require('refactoring').setup({})
 require('telescope').load_extension("refactoring")
-require("lsp-inlayhints").setup()
-
 EOF
 
 lua << EOF
+require("lsp-inlayhints").setup()
+
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   group = "LspAttach_inlayhints",
@@ -70,7 +76,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, bufnr)
   end,
 })
-
 EOF
 
 " lua << EOF
