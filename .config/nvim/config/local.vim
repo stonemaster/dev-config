@@ -58,6 +58,7 @@ set background=dark " for the dark version
 lua << EOF
 require('refactoring').setup({})
 require('telescope').load_extension("refactoring")
+require('twilight').setup({})
 EOF
 
 lua << EOF

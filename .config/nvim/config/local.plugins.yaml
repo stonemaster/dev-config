@@ -40,6 +40,9 @@
 # Markdown preview via :MarkdownPreview
 - repo: iamcco/markdown-preview.nvim
 
+# :Twilight mode for better focus of active code blocks
+- repo: folke/twilight.nvim
+
 # - { repo: jackguo380/vim-lsp-cxx-highlight }
 #- { repo: preservim/tagbar }
 #- { repo: vim-airline/vim-airline }
