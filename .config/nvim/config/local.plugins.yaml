@@ -4,7 +4,6 @@
 - { repo: prabirshrestha/asyncomplete-tags.vim, if: 0 }
 - { repo: OmniSharp/omnisharp-vim }
 - { repo: machakann/asyncomplete-ezfilter.vim }
-- { repo: kana/vim-altr, on_map: { n: <Plug> }}
 # Spell checking for Comments
 - repo: lewis6991/spellsitter.nvim
   depends: [ nvim-treesitter ]
@@ -20,8 +19,8 @@
   hook_add: |-
     lua vim.api.nvim_set_keymap("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",	{ noremap = true })
 
-# Swap parameters with :ISwap*
 # https://github.com/mizlan/iswap.nvim
+# Swap parameters with :ISwap*
 - repo: mizlan/iswap.nvim
   depends: [ nvim-treesitter ]
   hook_post_source: |-
