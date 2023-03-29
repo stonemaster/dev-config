@@ -27,7 +27,13 @@
 ```sh
 git config --global core.excludesFile '~/.gitignore'
 ```
-1. Symlink `compile_commands.json` into source tree for best clangd experience.
+
+1. Add `.clangd` file in source tree that points to compilation database:
+
+```
+CompileFlags:
+  CompilationDatabase: /home/stone/source
+```
 
 # Extra Plugins
 
