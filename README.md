@@ -17,6 +17,18 @@
    closing the window.
 1. In Wayland, install `wl-clipboard` to make system clipboard available
 
+## Additional Tweaks
+
+1. Add `.rgignore` in source tree to disable listing `.cache` files:
+```sh
+.cache/*
+```
+1. Global GIT ignore of special files:
+```sh
+git config --global core.excludesFile '~/.gitignore'
+```
+1. Symlink `compile_commands.json` into source tree for best clangd experience.
+
 # Extra Plugins
 
 1. See `local.plugins.yaml`
