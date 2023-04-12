@@ -1,7 +1,5 @@
 local opt = vim.opt
 
--- vim.cmd.colorscheme('gruvbox')
-
 opt.tabstop = 4
 opt.shiftwidth = 4
 

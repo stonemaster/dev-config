@@ -19,3 +19,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, bufnr)
   end,
 })
+
+local custom_augroup = vim.api.nvim_create_augroup("custom", { clear = true })
+
+-- enable spellchecking for these filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "lua", "cpp", "bash" },
+  command = "setlocal spell",
+  group = custom_augroup,
+})

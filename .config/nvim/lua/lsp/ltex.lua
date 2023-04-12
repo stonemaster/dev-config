@@ -9,6 +9,7 @@ local config = {
 		'xhtml',
 		'markdown',
 		'restructuredtext',
+		'vimwiki',
 	},
 	settings = {
 		ltex = {
