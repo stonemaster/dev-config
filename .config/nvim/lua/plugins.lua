@@ -85,6 +85,7 @@ return {
 	{
 		'iamcco/markdown-preview.nvim',
 		event = 'BufEnter',
+		build = 'cd app && yarn install',
 	},
 
 	-- :Twilight mode for better focus of active code blocks
