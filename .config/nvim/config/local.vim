@@ -1,3 +1,7 @@
+"
+" DEPRECATED: all in LUA configurations now
+"
+
 set number
 unmap Y
 

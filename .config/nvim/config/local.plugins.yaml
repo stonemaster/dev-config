@@ -1,3 +1,7 @@
+#
+# DEPRECATED: all in LUA configurations now
+#
+
 # CMake plugin with :CMake
 - { repo: ilyachur/cmake4vim }
 - { repo: yami-beta/asyncomplete-omni.vim }
@@ -41,6 +45,8 @@
 
 # :Twilight mode for better focus of active code blocks
 - repo: folke/twilight.nvim
+
+- repo: vimwiki/vimwiki
 
 # - { repo: jackguo380/vim-lsp-cxx-highlight }
 #- { repo: preservim/tagbar }
