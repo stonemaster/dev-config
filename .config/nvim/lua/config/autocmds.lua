@@ -5,6 +5,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
   command = "if mode() != 'c' | checktime | endif",
   pattern = { "*" },
 })
+vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
+  command = "echohl WarningMsg | echo \"File changed on disk. Buffer reloaded.\" | echohl None",
+  pattern = { "*" }
+})
 
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {

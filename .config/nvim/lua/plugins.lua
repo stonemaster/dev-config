@@ -8,20 +8,6 @@ return {
 		event = 'BufEnter',
 	},
 
-	--- Spellchecking for comments
-	{
-		'lewis6991/spellsitter.nvim',
-		dependencies= 'nvim-treesitter',
-		event = 'BufEnter',
-		opts = {
-			hooks = {
-				post = function()
-					require('spellsitter').setup()
-				end
-			}
-		}
-	},
-
 	-----------------------------------------------------------------------------
 	{
 		'ThePrimeagen/refactoring.nvim',
