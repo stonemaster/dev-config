@@ -32,3 +32,9 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal spell",
   group = custom_augroup,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cqlang" },
+  command = "set ft=python",
+  group = custom_augroup,
+})
