@@ -92,4 +92,17 @@ return {
 		'vimwiki/vimwiki',
 		event = 'BufEnter',
 	},
+
+	-- Sync system clipboards
+	{
+		'EtiamNullam/deferred-clipboard.nvim',
+		event = 'BufEnter',
+		opts = {
+			hooks = function()
+				require('deferred-clipboard').setup {
+				fallback = 'unnamedplus', -- or your preferred setting for clipboard
+				}
+			end
+		}
+	},
 }
