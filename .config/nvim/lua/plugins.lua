@@ -105,4 +105,20 @@ return {
 			end
 		}
 	},
+
+	-- Flutter
+	{
+		'akinsho/flutter-tools.nvim',
+		event = 'BufEnter',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim', -- optional for vim.ui.select
+		},
+		opts = {
+			hooks = function()
+				require("flutter-tools").setup {}
+				require("telescope").load_extension("flutter")
+			end
+		}
+	},
 }
