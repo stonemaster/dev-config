@@ -264,5 +264,9 @@ bindsym $mod+Shift+e mode "$mode_system"
 # Allow to copy and print screen
 bindsym Control+Print exec grimshot copy area
 
+# Automatically disable laptop screen
+bindswitch lid:on  output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
+
 
 include /etc/sway/config.d/*
