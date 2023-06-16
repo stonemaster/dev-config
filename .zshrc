@@ -15,15 +15,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART=true
 
 plugins=(git
-  tmux
-  fzf
-  colored-man-pages
-  z
-  ssh-agent
-  gpg-agent
   autojump
+  colored-man-pages
+  direnv
+  fzf
+  gpg-agent
   kubectl
   kubetail
+  ssh-agent
+  tmux
+  z
 )
 
 source $ZSH/oh-my-zsh.sh

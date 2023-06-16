@@ -55,17 +55,28 @@ return {
 	},
 
 	-- Inlayhints for LSP servers
-	{
-		'lvimuser/lsp-inlayhints.nvim',
-		event = 'BufEnter',
-		opts = {
-			hooks = {
-				post = function()
-					require("lsp-inlayhints").setup()
-				end
-			}
-		}
-	},
+	{ import = 'rafi.plugins.extras.lsp.inlayhints' },
+
+	-- YAML companion
+	{ import = 'rafi.plugins.extras.lsp.yaml-companion' },
+
+	-- Goto Preview
+	{ import = 'rafi.plugins.extras.ui.goto-preview' },
+
+	-- Sandwich plugin
+	{ import = 'rafi.plugins.extras.coding.sandwich' },
+
+	-- Autopairs
+	{ import = 'rafi.plugins.extras.coding.autopairs' },
+
+	-- Editorconfig
+	{ import = 'rafi.plugins.extras.coding.editorconfig' },
+
+	-- Treesj
+	{ import = 'rafi.plugins.extras.treesitter.treesj' },
+
+	-- Cursorword
+	{ import = 'rafi.plugins.extras.ui.cursorword' },
 
 	-- Markdown preview via :MarkdownPreview
 	{
@@ -91,6 +102,39 @@ return {
 	{
 		'vimwiki/vimwiki',
 		event = 'BufEnter',
+		cmd = { 'VimwikiIndex', 'VimwikiUISelect' },
+		keys = {
+			{ '<Leader>W', '<cmd>VimwikiIndex<CR>', { noremap = true } },
+		},
+		init = function()
+			vim.g.vimwiki_global_ext = 0
+			vim.g.vimwiki_use_calendar = 1
+			vim.g.vimwiki_hl_headers = 1
+			vim.g.vimwiki_hl_cb_checked = 1
+			vim.g.vimwiki_autowriteall = 0
+			vim.g.vimwiki_list = {
+				{
+					auto_toc = 1,
+					path = '~/Documents/vimwiki',
+					syntax = 'markdown',
+					ext = '.md',
+				},
+			}
+		end,
+		config = function()
+			vim.g.vimwiki_key_mappings = {
+				all_maps = 1,
+				global = 1,
+				headers = 1,
+				text_objs = 1,
+				table_format = 1,
+				table_mappings = 1,
+				lists = 1,
+				links = 1,
+				html = 1,
+				mouse = 0,
+			}
+		end,
 	},
 
 	-- Sync system clipboards
