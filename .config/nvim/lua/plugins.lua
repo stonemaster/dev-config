@@ -72,6 +72,12 @@ return {
 	-- Editorconfig
 	{ import = 'rafi.plugins.extras.coding.editorconfig' },
 
+	-- UFO (fold)
+	{ import = 'rafi.plugins.extras.editor.ufo' },
+
+	-- Sidebar
+	{ import = 'rafi.plugins.extras.editor.sidebar' },
+
 	-- Treesj
 	{ import = 'rafi.plugins.extras.treesitter.treesj' },
 
