@@ -216,9 +216,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # mute soun
 #
 # Appearance
 #
-font pango:"MensloLGS NF" 0
-titlebar_border_thickness 1
-titlebar_padding 1
+font pango:"MensloLGS NF" 8
 
 #
 # Autostart block
@@ -270,3 +268,4 @@ bindswitch lid:off output eDP-1 enable
 
 
 include /etc/sway/config.d/*
+exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
