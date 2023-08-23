@@ -33,6 +33,7 @@ EDITOR=vim
 export CLANGD_FLAGS="-header-insertion=never --offset-encoding=utf-16"
 
 if [[ $OSTYPE != 'darwin'* ]]; then
+  # Works only on X!
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
 fi

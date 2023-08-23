@@ -26,6 +26,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "kotlin" },
+  command = "setlocal commentstring=//\\ %s",
+  group = custom_augroup,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cqlang" },
   command = "set ft=python",
   group = custom_augroup,

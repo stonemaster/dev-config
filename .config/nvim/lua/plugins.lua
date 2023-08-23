@@ -171,4 +171,31 @@ return {
 			end
 		}
 	},
+
+	-- GitHub Copilot (adapted from Rafi)
+	{
+		'zbirenbaum/copilot.lua',
+		cmd = 'Copilot',
+		event = 'InsertEnter',
+		config = function ()
+			require("copilot").setup({})
+		end
+	},
+	{
+		'zbirenbaum/copilot-cmp',
+		dependencies = 'zbirenbaum/copilot.lua',
+		opts = {},
+		config = function(_, opts)
+			local copilot_cmp = require('copilot_cmp')
+			copilot_cmp.setup(opts)
+			-- attach cmp source whenever copilot attaches
+			-- fixes lazy-loading issues with the copilot cmp source
+			---@param client lsp.Client
+			require('rafi.lib.utils').on_attach(function(client)
+				if client.name == 'copilot' then
+					copilot_cmp._on_insert_enter({})
+				end
+			end)
+		end,
+	},
 }
