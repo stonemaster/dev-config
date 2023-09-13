@@ -41,7 +41,7 @@ fi
 alias icat="kitty +kitten icat"
 alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
-alias myip="curl -s ifconfig.me"
+alias myip="curl -4 -s https://ifconfig.me"
 
 function gitpurgemerged() {
   git fetch --all --prune
@@ -68,6 +68,7 @@ function updatenvim() {
 
 # Force nvim colour detection. Use with caution.
 export TERM=xterm-kitty
+export ZK_NOTEBOOK_DIR=${HOME}/Documents/zk-wiki
 
 # Show task list if taskwarrior is installed.
 if command -v task &> /dev/null; then

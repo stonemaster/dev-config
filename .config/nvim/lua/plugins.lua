@@ -60,8 +60,8 @@ return {
 	-- YAML companion
 	{ import = 'rafi.plugins.extras.lsp.yaml-companion' },
 
-	-- Goto Preview
-	{ import = 'rafi.plugins.extras.ui.goto-preview' },
+	-- Prettier
+	{ import = 'rafi.plugins.extras.formatting.prettier' },
 
 	-- Sandwich plugin
 	{ import = 'rafi.plugins.extras.coding.sandwich' },
@@ -78,11 +78,21 @@ return {
 	-- Sidebar
 	{ import = 'rafi.plugins.extras.editor.sidebar' },
 
+	-- Anyjump
+	{ import = 'rafi.plugins.extras.editor.anyjump' },
+
 	-- Treesj
 	{ import = 'rafi.plugins.extras.treesitter.treesj' },
 
 	-- Cursorword
 	{ import = 'rafi.plugins.extras.ui.cursorword' },
+
+	-- Languages
+	{ import = 'rafi.plugins.extras.lang.python' },
+	{ import = 'rafi.plugins.extras.lang.yaml' },
+	{ import = 'rafi.plugins.extras.lang.json' },
+	{ import = 'rafi.plugins.extras.lang.docker' },
+	{ import = 'rafi.plugins.extras.lang.ansible' },
 
 	-- Markdown preview via :MarkdownPreview
 	{
