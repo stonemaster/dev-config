@@ -54,11 +54,3 @@ Example:
 
 1. Copy `i3exit` to /usr/local/bin
 1. Copy `config` to `$HOME/.config/i3/config`
-
-# Installation (for Mac)
-
-1. Follow [installation guide](https://cbrgm.net/post/2021-05-5-setup-macos/)
-for `yabai` and `skhd`. Configuration files for `~/.yabairc` and `~/.skhdrc`
-are in this repo
-2. Remap keys with *Karabiner elements*
-
