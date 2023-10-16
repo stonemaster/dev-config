@@ -43,9 +43,19 @@ alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
 alias myip="curl -4 -s https://ifconfig.me"
 
+# JAVA/Kotlin specific wrapper
+function gradlew() {
+  local target=${1:-Debug}
+  ./gradlew assemble${target}
+  local retcode=$?
+  ./gradlew --stop
+  return ${retcode}
+}
+
 function gitpurgemerged() {
+  local origin=${1:-origin}
   git fetch --all --prune
-  git branch -vv | grep ': gone\]' | grep -Eo '\[[^:]+: gone\]' | cut -f1 -d':' | sed 's/\[origin\///g' | xargs git branch -D
+  git branch -vv | grep ': gone\]' | grep -Eo '\[[^:]+: gone\]' | cut -f1 -d':' | sed "s/\[$origin\///g" | xargs git branch -D
 }
 
 function updatenvim() {

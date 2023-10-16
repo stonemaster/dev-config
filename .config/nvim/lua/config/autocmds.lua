@@ -37,6 +37,12 @@ vim.api.nvim_create_autocmd("FileType", {
   group = custom_augroup,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "dart" },
+  command = "setlocal shiftwidth=2 expandtab tabstop=2",
+  group = custom_augroup,
+})
+
 -- TODO: Revert Dart treesitter performance problems.
 -- until this one fixed: https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
 local parser = require("nvim-treesitter.parsers").get_parser_configs()
