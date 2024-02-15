@@ -6,7 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
+# += Homebrew
+# += Dart Pub cache
+export PATH=$HOME/bin:/opt/homebrew/bin:$HOME/.pub-cache/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -22,6 +24,7 @@ plugins=(git
   gpg-agent
   kubectl
   kubetail
+  pyenv
   ssh-agent
   tmux
   z

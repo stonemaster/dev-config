@@ -55,13 +55,13 @@ return {
 	},
 
 	-- Inlayhints for LSP servers
-	{ import = 'rafi.plugins.extras.lsp.inlayhints' },
+	-- { import = 'rafi.plugins.extras.lsp.inlayhints' },
 
 	-- YAML companion
 	{ import = 'rafi.plugins.extras.lsp.yaml-companion' },
 
 	-- Prettier
-	{ import = 'rafi.plugins.extras.formatting.prettier' },
+	{ import = 'lazyvim.plugins.extras.formatting.prettier' },
 
 	-- Sandwich plugin
 	{ import = 'rafi.plugins.extras.coding.sandwich' },
@@ -87,10 +87,13 @@ return {
 	-- Cursorword
 	{ import = 'rafi.plugins.extras.ui.cursorword' },
 
+	-- Zk
+	{ import = 'rafi.plugins.extras.org.zk' },
+
 	-- Languages
 	{ import = 'rafi.plugins.extras.lang.python' },
 	{ import = 'rafi.plugins.extras.lang.yaml' },
-	{ import = 'rafi.plugins.extras.lang.json' },
+	{ import = 'lazyvim.plugins.extras.lang.json' },
 	{ import = 'rafi.plugins.extras.lang.docker' },
 	{ import = 'rafi.plugins.extras.lang.ansible' },
 
@@ -188,30 +191,30 @@ return {
 		}
 	},
 
-	-- GitHub Copilot (adapted from Rafi)
-	{
-		'zbirenbaum/copilot.lua',
-		cmd = 'Copilot',
-		event = 'InsertEnter',
-		config = function ()
-			require("copilot").setup({})
-		end
-	},
-	{
-		'zbirenbaum/copilot-cmp',
-		dependencies = 'zbirenbaum/copilot.lua',
-		opts = {},
-		config = function(_, opts)
-			local copilot_cmp = require('copilot_cmp')
-			copilot_cmp.setup(opts)
-			-- attach cmp source whenever copilot attaches
-			-- fixes lazy-loading issues with the copilot cmp source
-			---@param client lsp.Client
-			require('rafi.lib.utils').on_attach(function(client)
-				if client.name == 'copilot' then
-					copilot_cmp._on_insert_enter({})
-				end
-			end)
-		end,
-	},
+	-- -- GitHub Copilot (adapted from Rafi)
+	-- {
+	-- 	'zbirenbaum/copilot.lua',
+	-- 	cmd = 'Copilot',
+	-- 	event = 'InsertEnter',
+	-- 	config = function ()
+	-- 		require("copilot").setup({})
+	-- 	end
+	-- },
+	-- {
+	-- 	'zbirenbaum/copilot-cmp',
+	-- 	dependencies = 'zbirenbaum/copilot.lua',
+	-- 	opts = {},
+	-- 	config = function(_, opts)
+	-- 		local copilot_cmp = require('copilot_cmp')
+	-- 		copilot_cmp.setup(opts)
+	-- 		-- attach cmp source whenever copilot attaches
+	-- 		-- fixes lazy-loading issues with the copilot cmp source
+	-- 		---@param client lsp.Client
+	-- 		require('rafi.lib.utils').on_attach(function(client)
+	-- 			if client.name == 'copilot' then
+	-- 				copilot_cmp._on_insert_enter({})
+	-- 			end
+	-- 		end)
+	-- 	end,
+	-- },
 }
