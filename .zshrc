@@ -10,6 +10,9 @@ fi
 # += Dart Pub cache
 export PATH=$HOME/bin:/opt/homebrew/bin:$HOME/.pub-cache/bin:$PATH
 
+# Don't clutter home with `go` folder
+export GOPATH="$HOME/.local/state/go"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
