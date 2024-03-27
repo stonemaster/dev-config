@@ -12,6 +12,6 @@ opt.number = true
 
 -- Commands to generate pyenv:
 -- `python3 -m venv py-nvim`
-vim.g.python3_host_prog = 'py-nvim/bin/python3'
+vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/py-nvim/bin/python3'
 -- Has to be `nil` instead of 1, see https://github.com/NvChad/NvChad/issues/1417
 vim.g.loaded_python3_provider = nil
