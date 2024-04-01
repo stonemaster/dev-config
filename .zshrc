@@ -64,8 +64,8 @@ function gitpurgemerged() {
   git branch -vv | grep ': gone\]' | grep -Eo '\[[^:]+: gone\]' | cut -f1 -d':' | sed "s/\[$origin\///g" | xargs git branch -D
 }
 
-function updatenvim() {
-  local url="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+function _updatenvim_impl() {
+  local url="$1"
   local etagfile="${HOME}/.local/state/nvim/nvim.etag"
   etag=$(curl -L --head ${url} 2>/dev/null | grep -i 'etag:' | cut -f2 -d':' | tr -d $'\r')
   if ! diff -q ${etagfile} <(echo ${etag}) 2>/dev/null>/dev/null; then
@@ -74,6 +74,16 @@ function updatenvim() {
   else
     echo "NVIM already up-to-date (Etag: ${etag})"
   fi
+}
+
+function updatenvim() {
+  local url="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+  _updatenvim_impl ${url}
+}
+
+function updatenvim_nightly() {
+  local url="https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+  _updatenvim_impl ${url}
 }
 
 # environment specific sourcing
