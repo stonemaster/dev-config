@@ -5,7 +5,7 @@
    - *Important*: install recommended Meslo font
 1. Install NERD fonts
 1. [NVIM Nightly](https://github.com/neovim/neovim/releases/tag/nightly)
-1. [Git So Fancy](https://github.com/so-fancy/diff-so-fancy)
+1. [git-delta](https://github.com/dandavison/delta)
 1. [bat](https://github.com/sharkdp/bat)
 1. `fzf`
 1. `ripgrep`
