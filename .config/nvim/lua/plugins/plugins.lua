@@ -212,6 +212,7 @@ return {
         home = vim.fn.expand("~/Documents/wiki"),
         auto_set_syntax = false,
         auto_set_filetype = false,
+        template_new_note = vim.fn.expand("~/.config/nvim/telekasten-new-note-template.md"),
       })
     end,
     keys = {
