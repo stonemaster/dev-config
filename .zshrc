@@ -94,7 +94,6 @@ function updatenvim_nightly() {
 
 # Force nvim colour detection. Use with caution.
 export TERM=xterm-kitty
-export ZK_NOTEBOOK_DIR=${HOME}/Documents/zk-wiki
 
 # Show task list if taskwarrior is installed.
 if command -v task &> /dev/null; then
