@@ -196,11 +196,12 @@ return {
   -- Toggle Term
   {
     "akinsho/toggleterm.nvim",
+    event = "BufEnter",
     version = "*",
     config = true,
-    -- keys = {
-    --   { "<c-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
-    -- },
+    keys = {
+      { "n", "<C-/>", "<CMD>ToggleTerm<CR>", desc = "Toggle terminal" },
+    },
   },
 
   -- Telekasten
@@ -227,6 +228,27 @@ return {
 
       -- Call insert link automatically when we start typing a link
       { "[[", "<cmd>Telekasten insert_link<CR>", "i" },
+    },
+  },
+
+  -- CSV support
+  {
+    "cameron-wags/rainbow_csv.nvim",
+    config = true,
+    ft = {
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
+    },
+    cmd = {
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
     },
   },
 }
