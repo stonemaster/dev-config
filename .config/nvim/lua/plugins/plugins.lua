@@ -14,6 +14,14 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
+  -- Enable chat in Codeium
+  {
+    "Exafunction/codeium.nvim",
+    opts = {
+      enable_chat = true,
+    },
+  },
+
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
@@ -43,6 +51,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
+      opts.indent = { enable = false }
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
         "bash",
@@ -51,6 +60,7 @@ return {
         "html",
         "javascript",
         "json",
+        "kotlin",
         "lua",
         "markdown",
         "markdown_inline",

@@ -21,5 +21,5 @@ echo "Legend: ✅ - exists in \$HOME    ❌ - doens't exist in \$HOME"
 echo ""
 
 export -f copy_file
-find . -type f -not -path "./.git/*" -not -name '*.md' -not -name 'sync.sh' \
+find . -type f -not -path "./.git/*" -not -name 'sync.sh' \
 	-exec bash -c 'copy_file "$0"' {} \;
