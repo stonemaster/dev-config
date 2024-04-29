@@ -16,6 +16,10 @@
 1. *LazyVim* based setup - [https://www.lazyvim.org/]
 1. In Wayland, install `wl-clipboard` to make system clipboard available
 
+## SWAY
+
+1. Install `sway` and `bemenu`
+
 ### Extra Plugins
 
 See `.config/nvim/plugins/plugins.lua`
