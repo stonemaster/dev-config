@@ -9,6 +9,7 @@
 1. [bat](https://github.com/sharkdp/bat)
 1. `fzf`
 1. `ripgrep`
+1. `direnv` for `.envrc` support
 1. TMUX as well as [TPM](https://github.com/tmux-plugins/tpm)
     1. **Important**: Press `prefix + I` as per TPM documentation to install plugins
 
