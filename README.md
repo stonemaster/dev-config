@@ -15,6 +15,7 @@
 ## NVIM as an IDE
 
 1. *LazyVim* based setup - [https://www.lazyvim.org/]
+    1. Just `mv .config/nvim $HOME/.config` and then start `nvim`
 1. In Wayland, install `wl-clipboard` to make system clipboard available
 
 ## SWAY
