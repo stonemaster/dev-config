@@ -10,6 +10,7 @@
 1. `fzf`
 1. `ripgrep`
 1. TMUX as well as [TPM](https://github.com/tmux-plugins/tpm)
+    1. **Important**: Press `prefix + I` as per TPM documentation to install plugins
 
 ## NVIM as an IDE
 
