@@ -14,14 +14,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- Enable chat in Codeium
-  {
-    "Exafunction/codeium.nvim",
-    opts = {
-      enable_chat = true,
-    },
-  },
-
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",

@@ -268,5 +268,5 @@ bindswitch lid:on  output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
 exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

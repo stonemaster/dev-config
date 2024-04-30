@@ -26,7 +26,6 @@ plugins=(git
   fzf
   gpg-agent
   kubectl
-  kubetail
   pyenv
   ssh-agent
   tmux
