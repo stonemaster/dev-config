@@ -19,14 +19,22 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
+#set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
+
+## AS: openSUSE specific
+# wofi as application launcher
+set $menu wofi --conf=/etc/wofi/config --style=/etc/wofi/style.css
+
+# openSUSE wallpaper
+output * bg /usr/share/wallpapers/default-1920x1080.png fill
+## END openSUSE specific
 
 include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -233,16 +241,6 @@ exec --no-startup-id pasystray
 bar {
     swaybar_command waybar
     position top
-
-    # # When the status_command prints a new line to stdout, swaybar updates.
-    # # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
 }
 
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
@@ -260,13 +258,62 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-# Allow to copy and print screen
-bindsym Control+Print exec grimshot copy area
+# Screenshots
+## Area selection shortcuts
+set $selected_window swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
+set $focused_window swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"'
+set $focused_output swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name'
+## Screenshot commands
+### Full
+set $screenshot_full grim
+set $screenshot_full_clipboard grim - | wl-copy
+### Selected window
+set $screenshot_selected_window $selected_window | grim -g-
+set $screenshot_selected_window_clipboard $selected_window | grim -g- - | wl-copy
+### Selected area
+set $screenshot_selected_area slurp | grim -g-
+set $screenshot_selected_area_clipboard slurp | grim -g- - | wl-copy
+### Focused window
+set $screenshot_focused_window $focused_window | grim -g-
+set $screenshot_focused_window_clipboard $focused_window | grim -g- - | wl-copy
+### Focused output
+set $screenshot_focused_output grim -o $($focused_output)
+set $screenshot_focused_output_clipboard grim -o $($focused_output) - | wl-copy
+
+## Screenshot mode menu
+set $screenshot "Screenshot: (f) full, (s) select window, (a) select area, (w) focused window, (o) focused output [Ctrl+ saves to clipboard]"
+mode $screenshot {
+    # Full
+    bindsym f exec $screenshot_full; mode "default"
+    bindsym Ctrl+f exec $screenshot_full_clipboard; mode "default"
+    # Selected window
+    bindsym s exec $screenshot_selected_window; mode "default"
+    bindsym Ctrl+s exec $screenshot_selected_window_clipboard; mode "default"
+    # Selected area
+    bindsym a exec $screenshot_selected_area; mode "default"
+    bindsym Ctrl+a exec $screenshot_selected_area_clipboard; mode "default"
+    # Focused window
+    bindsym w exec $screenshot_focused_window; mode "default"
+    bindsym Ctrl+w exec $screenshot_focused_window_clipboard; mode "default"
+    # Focused output
+    bindsym o exec $screenshot_focused_output; mode "default"
+    bindsym Ctrl+o exec $screenshot_focused_output_clipboard; mode "default"
+
+    # Exit screenshot mode menu
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+bindsym $mod+Print mode $screenshot
+
+# # Allow to copy and print screen
+# bindsym Control+Print exec grimshot copy area
 
 # Automatically disable laptop screen
 bindswitch lid:on  output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
+set $wob wob --config /etc/sway/wob/wob.ini
 
 #include /etc/sway/config.d/*
 exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
