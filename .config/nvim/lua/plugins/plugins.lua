@@ -282,6 +282,7 @@ return {
           end
         end,
         desc = "CopilotChat - Quick chat",
+        mode = { "n", "v" },
       },
       -- Show help actions with telescope
       {
@@ -340,6 +341,15 @@ return {
           vim.opt.cursorline = true
         end,
       })
+    end,
+  },
+
+  -- Highlight colors in hex
+  {
+    "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
+    config = function()
+      require("colorizer").setup()
     end,
   },
 }
