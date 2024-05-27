@@ -1,5 +1,5 @@
 return {
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim to load catppuccino-frappe colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
@@ -142,6 +142,7 @@ return {
     },
   },
 
+  -- Neogit
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -169,7 +170,7 @@ return {
       { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
       { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+      -- { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
 
@@ -198,11 +199,11 @@ return {
   -- Toggle Term
   {
     "akinsho/toggleterm.nvim",
-    event = "BufEnter",
-    version = "*",
+    -- event = "BufEnter",
+    -- version = "*",
     config = true,
     keys = {
-      { "n", "<C-/>", "<CMD>ToggleTerm<CR>", desc = "Toggle terminal" },
+      { "<C-\\>", "<CMD>ToggleTerm<CR>", desc = "Open `:ToggleTerm` floating terminal" },
     },
   },
 
@@ -350,6 +351,39 @@ return {
     event = "BufRead",
     config = function()
       require("colorizer").setup()
+    end,
+  },
+
+  -- Pleasant Git commit messages
+  {
+    "rhysd/committia.vim",
+    -- Taken from rafi/vim-config
+    event = "BufReadPre COMMIT_EDITMSG",
+    init = function()
+      -- See: https://github.com/rhysd/committia.vim#variables
+      vim.g.committia_min_window_width = 30
+      vim.g.committia_edit_window_width = 75
+    end,
+    config = function()
+      vim.g.committia_hooks = {
+        edit_open = function()
+          vim.cmd.resize(10)
+          local opts = {
+            buffer = vim.api.nvim_get_current_buf(),
+            silent = true,
+          }
+          local function map(mode, lhs, rhs)
+            vim.keymap.set(mode, lhs, rhs, opts)
+          end
+          map("n", "q", "<cmd>quit<CR>")
+          map("i", "<C-d>", "<Plug>(committia-scroll-diff-down-half)")
+          map("i", "<C-u>", "<Plug>(committia-scroll-diff-up-half)")
+          map("i", "<C-f>", "<Plug>(committia-scroll-diff-down-page)")
+          map("i", "<C-b>", "<Plug>(committia-scroll-diff-up-page)")
+          map("i", "<C-j>", "<Plug>(committia-scroll-diff-down)")
+          map("i", "<C-k>", "<Plug>(committia-scroll-diff-up)")
+        end,
+      }
     end,
   },
 }
