@@ -134,14 +134,6 @@ return {
     end,
   },
 
-  -- Folding
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      "kevinhwang91/promise-async",
-    },
-  },
-
   -- Neogit
   {
     "NeogitOrg/neogit",
@@ -385,5 +377,11 @@ return {
         end,
       }
     end,
+  },
+
+  -- Disable rustaceanvim (until compatibility issues are resolved in LazyVim)
+  {
+    "mrcjkb/rustaceanvim",
+    enabled = false,
   },
 }
