@@ -48,9 +48,11 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "bash",
         "cpp",
+        "d",
         "dart",
         "html",
         "javascript",
+        "jq",
         "json",
         "kotlin",
         "lua",
