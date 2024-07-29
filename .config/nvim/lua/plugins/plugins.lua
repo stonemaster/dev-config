@@ -61,6 +61,7 @@ return {
         "python",
         "query",
         "regex",
+        "sql",
         "tsx",
         "typescript",
         "vim",

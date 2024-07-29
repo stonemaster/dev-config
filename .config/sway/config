@@ -21,13 +21,10 @@ set $term kitty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
 
-## AS: openSUSE specific
-# wofi as application launcher
-set $menu wofi --conf=/etc/wofi/config --style=/etc/wofi/style.css
+# rofi as application launcher
+set $menu rofi -show run
 
-# openSUSE wallpaper
-output * bg /usr/share/wallpapers/default-1920x1080.png fill
-## END openSUSE specific
+output * bg /usr/share/backgrounds/Numbat_wallpaper_dimmed_3480x2160.png fill
 
 include /etc/sway/config-vars.d/*
 
@@ -313,7 +310,8 @@ bindsym $mod+Print mode $screenshot
 bindswitch lid:on  output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-set $wob wob --config /etc/sway/wob/wob.ini
+set $wob wob 
+#--config /etc/sway/wob/wob.ini
 
 #include /etc/sway/config.d/*
 exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

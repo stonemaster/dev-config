@@ -21,7 +21,13 @@
 
 ## SWAY
 
-1. Install `sway` and `bemenu`
+Install the following packages:
+
+1. `sway`
+1. `sway-notifcation-center`
+1. `waybar`
+1. `rofi` application launcher
+1. `grim` and `slurp` for screenshots
 
 ### Extra Plugins
 
