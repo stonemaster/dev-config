@@ -22,7 +22,7 @@ set $term kitty
 #set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
 
 # rofi as application launcher
-set $menu rofi -show run
+set $menu rofi -show drun
 
 output * bg /usr/share/backgrounds/Numbat_wallpaper_dimmed_3480x2160.png fill
 
