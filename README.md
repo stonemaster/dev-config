@@ -18,6 +18,13 @@
 1. *LazyVim* based setup - [https://www.lazyvim.org/]
     1. Just `mv .config/nvim $HOME/.config` and then start `nvim`
 1. In Wayland, install `wl-clipboard` to make system clipboard available
+1. Install the *JetBrains Mono* font for best experience in terms of icons:
+
+```sh
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip                                                       3
+mv *.ttf ~/.local/share/fonts
+```
+```
 
 ## SWAY
 
