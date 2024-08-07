@@ -8,6 +8,11 @@ function copy_file {
 	set -eu -o pipefail
 
 	local file_name="${1}"
+	if [[ "${file_name}" == "./.config/nvim/lua/config/local.lua" ]]; then
+		echo "⚠️ Skipping ${file_name}"
+		return
+	fi
+
 	if [ -f "$HOME/${file_name}" ]; then
 		echo "✅ ${file_name}"
 		cp "$HOME/${file_name}" "${file_name}"
