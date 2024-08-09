@@ -7,3 +7,6 @@ vim.api.nvim_set_keymap("n", "sb", "<cmd>buffer#<CR>", { desc = "Alternate buffe
 
 -- Restore normal VIM Y behavior (yank full line)
 vim.keymap.del("n", "Y")
+
+-- Ctrl+B for building
+vim.api.nvim_set_keymap("n", "<leader>cB", "<cmd>CMakeBuild<CR>", { desc = "Run CMake build" })
