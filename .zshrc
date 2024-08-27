@@ -8,7 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # += Homebrew
 # += Dart Pub cache
-export PATH=$HOME/bin:/opt/homebrew/bin:$HOME/.pub-cache/bin:$PATH
+export PATH=$HOME/bin:$HOME/.pub-cache/bin:$HOME/.local/bin:$PATH
+# Rust and cargo support
+. "$HOME/.cargo/env"
 
 # Don't clutter home with `go` folder
 export GOPATH="$HOME/.local/state/go"
