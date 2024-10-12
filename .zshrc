@@ -36,8 +36,7 @@ plugins=(git
 
 source $ZSH/oh-my-zsh.sh
 
-EDITOR=vim
-export CLANGD_FLAGS="-header-insertion=never --offset-encoding=utf-16"
+export EDITOR=nvim
 
 if [[ $OSTYPE != 'darwin'* ]]; then
   # Works only on X!
