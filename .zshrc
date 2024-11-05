@@ -49,15 +49,6 @@ alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
 alias myip="curl -4 -s https://ifconfig.me"
 
-# JAVA/Kotlin specific wrapper
-function gradlew() {
-  local target=${1:-Debug}
-  ./gradlew assemble${target}
-  local retcode=$?
-  ./gradlew --stop
-  return ${retcode}
-}
-
 function gitpurgemerged() {
   local origin=${1:-origin}
   git fetch --all --prune
@@ -81,9 +72,13 @@ function updatenvim() {
   _updatenvim_impl ${url}
 }
 
-function updatenvim_nightly() {
-  local url="https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
-  _updatenvim_impl ${url}
+# Just like rsync but will run the provided 
+# command line every second.
+function rsyncloop() {
+  while true; do
+    rsync $*
+    sleep 1
+  done
 }
 
 # environment specific sourcing
