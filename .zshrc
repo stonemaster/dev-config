@@ -48,6 +48,7 @@ alias icat="kitty +kitten icat"
 alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
 alias myip="curl -4 -s https://ifconfig.me"
+alias t='todo-txt'
 
 function gitpurgemerged() {
   local origin=${1:-origin}
@@ -91,6 +92,6 @@ function rsyncloop() {
 export TERM=xterm-kitty
 
 # Show task list if taskwarrior is installed.
-if command -v task &> /dev/null; then
-  task
+if command -v todo-txt &> /dev/null; then
+  todo-txt ls
 fi
