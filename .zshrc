@@ -8,7 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # += Homebrew
 # += Dart Pub cache
-export PATH=$HOME/bin:$HOME/.pub-cache/bin:$HOME/.local/bin:$PATH
+# += Flutter
+# += Go binaries
+export PATH=$HOME/bin:$HOME/.pub-cache/bin:$HOME/.local/bin:$PATH:$HOME/Applications/flutter/bin:$HOME/.local/state/go/bin/
 # Rust and cargo support
 . "$HOME/.cargo/env"
 
@@ -79,6 +81,23 @@ function rsyncloop() {
   while true; do
     rsync $*
     sleep 1
+  done
+}
+
+adblog () {
+  local application_name=$1
+  local pid=$(adb shell pidof -s $application_name)
+  adb logcat --pid=$pid
+}
+
+function watson_report() {
+  #set -x
+  local start_date="$1"
+  for i in $(seq 0 6); do
+    local the_date=$(date -d"$start_date +$i day" +"%Y-%m-%d")
+    echo "Date: $the_date"
+    watson report -G --from $the_date --to $the_date
+    echo "-------------------------------"
   done
 }
 
