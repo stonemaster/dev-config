@@ -191,17 +191,6 @@ return {
     },
   },
 
-  -- Toggle Term
-  {
-    "akinsho/toggleterm.nvim",
-    -- event = "BufEnter",
-    -- version = "*",
-    config = true,
-    keys = {
-      { "<C-\\>", "<CMD>ToggleTerm<CR>", desc = "Open `:ToggleTerm` floating terminal" },
-    },
-  },
-
   -- Telekasten
   {
     "renerocksai/telekasten.nvim",
@@ -386,5 +375,20 @@ return {
   {
     "mrcjkb/rustaceanvim",
     enabled = false,
+  },
+
+  -- Preview images inside NVIM
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    opts = {},
   },
 }
