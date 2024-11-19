@@ -371,12 +371,6 @@ return {
     end,
   },
 
-  -- Disable rustaceanvim (until compatibility issues are resolved in LazyVim)
-  {
-    "mrcjkb/rustaceanvim",
-    enabled = false,
-  },
-
   -- Preview images inside NVIM
   {
     "vhyrro/luarocks.nvim",
@@ -390,5 +384,18 @@ return {
     "3rd/image.nvim",
     dependencies = { "luarocks.nvim" },
     opts = {},
+  },
+
+  -- Lua
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      { "<leader>zm", "<cmd>ZenMode<CR>", desc = "Enable ZenMode" },
+    },
   },
 }
