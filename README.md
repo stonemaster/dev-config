@@ -10,6 +10,7 @@
 1. `fzf`
 1. `ripgrep`
 1. `direnv` for `.envrc` support
+1. `autojump` and `zoxide` for directory jump history
 1. TMUX as well as [TPM](https://github.com/tmux-plugins/tpm)
     1. **Important**: Press `prefix + I` as per TPM documentation to install plugins
 
@@ -34,6 +35,7 @@ Install the following packages:
 1. `waybar`
 1. `rofi` application launcher
 1. `grim` and `slurp` for screenshots
+1. Install applets for easier system access: `pasystray blueman`
 
 ### Extra Plugins
 
