@@ -35,6 +35,7 @@ Install the following packages:
 1. `waybar`
 1. `rofi` application launcher
 1. `grim` and `slurp` for screenshots
+1. `light` for adjusting screen brightness
 1. Install applets for easier system access: `pasystray blueman`
 
 ### Extra Plugins

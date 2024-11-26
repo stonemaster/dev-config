@@ -11,7 +11,7 @@ fi
 # += Flutter
 # += Go binaries
 export PATH=$HOME/bin:$HOME/.pub-cache/bin:$HOME/.local/bin:$PATH:$HOME/Applications/flutter/bin:$HOME/.local/state/go/bin/
-# Rust and cargo support
+# Rustup and cargo support
 . "$HOME/.cargo/env"
 
 # Don't clutter home with `go` folder
