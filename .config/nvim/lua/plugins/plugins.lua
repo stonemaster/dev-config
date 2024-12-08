@@ -239,57 +239,6 @@ return {
     },
   },
 
-  -- GitHub Copilot Chat
-  -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    opts = {
-      show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
-      debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-      disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-      language = "English", -- Copilot answer language settings when using default prompts. Default language is English.
-    },
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
-      { "nvim-lua/plenary.nvim" },
-    },
-    build = function()
-      vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
-    end,
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>ccq",
-        function()
-          local input = vim.fn.input("Quick Chat: ")
-          if input ~= "" then
-            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-          end
-        end,
-        desc = "CopilotChat - Quick chat",
-        mode = { "n", "v" },
-      },
-      -- Show help actions with telescope
-      {
-        "<leader>cch",
-        function()
-          local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.telescope").pick(actions.help_actions())
-        end,
-        desc = "CopilotChat - Help actions",
-      },
-      -- Show prompts actions with telescope
-      {
-        "<leader>ccp",
-        function()
-          local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-        end,
-        desc = "CopilotChat - Prompt actions",
-      },
-    },
-  },
-
   -----------------------------------------------------------------------------
   -- Interacting with and manipulating marks
   {
@@ -396,6 +345,22 @@ return {
     },
     keys = {
       { "<leader>zm", "<cmd>ZenMode<CR>", desc = "Enable ZenMode" },
+    },
+  },
+
+  -- Goto Preview
+  {
+    "rmagatti/goto-preview",
+    event = "BufEnter",
+    config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+    keys = {
+      { "<leader>gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", mode = 'n', desc = "Goto preview definition" },
+      { "<leader>gpc", "<cmd>lua require('goto-preview').close_all_win()<CR>", mode = 'n', desc = "Goto preview: close all windows" },
+      { "<leader>gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", mode = 'n', desc = "Goto preview references" },
+      --nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+      --nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
+      --nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+      --nnoremap gpD <cmd>lua require('goto-preview').goto_preview_declaration()<CR>
     },
   },
 }
