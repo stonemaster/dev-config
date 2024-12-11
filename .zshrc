@@ -23,7 +23,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART=true
 
-plugins=(git
+plugins=(
+  git
   autojump
   colored-man-pages
   direnv
@@ -50,7 +51,7 @@ alias icat="kitty +kitten icat"
 alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
 alias myip="curl -4 -s https://ifconfig.me"
-alias t='todo-txt'
+alias t="todo.sh -d $HOME/.todo-txt/config"
 
 function gitpurgemerged() {
   local origin=${1:-origin}
@@ -111,6 +112,6 @@ function watson_report() {
 export TERM=xterm-kitty
 
 # Show task list if taskwarrior is installed.
-if command -v todo-txt &> /dev/null; then
-  todo-txt ls
+if command -v t &> /dev/null; then
+  t ls
 fi

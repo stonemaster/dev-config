@@ -335,17 +335,26 @@ return {
     opts = {},
   },
 
-  -- Lua
+  -- Zen Mode
   {
     "folke/zen-mode.nvim",
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      plugins = {
+        kitty = {
+          enabled = true,
+          font = "+4", -- font size increment
+        },
+      },
     },
     keys = {
       { "<leader>zm", "<cmd>ZenMode<CR>", desc = "Enable ZenMode" },
     },
+  },
+
+  -- Twilight which is enabled in Zen mode
+  {
+    "folke/twilight.nvim",
+    opts = {},
   },
 
   -- Goto Preview
@@ -354,9 +363,24 @@ return {
     event = "BufEnter",
     config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
     keys = {
-      { "<leader>gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", mode = 'n', desc = "Goto preview definition" },
-      { "<leader>gpc", "<cmd>lua require('goto-preview').close_all_win()<CR>", mode = 'n', desc = "Goto preview: close all windows" },
-      { "<leader>gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", mode = 'n', desc = "Goto preview references" },
+      {
+        "<leader>gpd",
+        "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+        mode = "n",
+        desc = "Goto preview definition",
+      },
+      {
+        "<leader>gpc",
+        "<cmd>lua require('goto-preview').close_all_win()<CR>",
+        mode = "n",
+        desc = "Goto preview: close all windows",
+      },
+      {
+        "<leader>gpr",
+        "<cmd>lua require('goto-preview').goto_preview_references()<CR>",
+        mode = "n",
+        desc = "Goto preview references",
+      },
       --nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
       --nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
       --nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
