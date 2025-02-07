@@ -72,7 +72,7 @@ function _updatenvim_impl() {
 }
 
 function updatenvim() {
-  local url="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+  local url="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage"
   _updatenvim_impl ${url}
 }
 
