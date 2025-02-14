@@ -306,10 +306,10 @@ return {
     "folke/zen-mode.nvim",
     opts = {
       plugins = {
-        kitty = {
-          enabled = true,
-          font = "+4", -- font size increment
-        },
+        -- kitty = {
+        --   enabled = true,
+        --   font = "+4", -- font size increment
+        -- },
       },
     },
     keys = {
@@ -330,19 +330,19 @@ return {
     config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
     keys = {
       {
-        "<leader>gpd",
+        "<leader>cpd",
         "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
         mode = "n",
         desc = "Goto preview definition",
       },
       {
-        "<leader>gpc",
+        "<leader>cpc",
         "<cmd>lua require('goto-preview').close_all_win()<CR>",
         mode = "n",
         desc = "Goto preview: close all windows",
       },
       {
-        "<leader>gpr",
+        "<leader>cpr",
         "<cmd>lua require('goto-preview').goto_preview_references()<CR>",
         mode = "n",
         desc = "Goto preview references",
