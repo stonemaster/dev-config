@@ -2,7 +2,7 @@
 
 1. [Oh-my-ZSH](https://github.com/ohmyzsh/ohmyzsh)
 1. [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-   - *Important*: install recommended Meslo font
+   - _Important_: install recommended Meslo font
 1. Install NERD fonts
 1. [NVIM Nightly](https://github.com/neovim/neovim/releases/tag/nightly)
 1. [git-delta](https://github.com/dandavison/delta)
@@ -11,15 +11,16 @@
 1. `ripgrep`
 1. `direnv` for `.envrc` support
 1. `autojump` and `zoxide` for directory jump history
+1. [`nvm`](https://github.com/nvm-sh/nvm) and `node` for several NVIM plugins
 1. TMUX as well as [TPM](https://github.com/tmux-plugins/tpm)
-    1. **Important**: Press `prefix + I` as per TPM documentation to install plugins
+   1. **Important**: Press `prefix + I` as per TPM documentation to install plugins
 
 ## NVIM as an IDE
 
-1. *LazyVim* based setup - [https://www.lazyvim.org/]
-    1. Just `mv .config/nvim $HOME/.config` and then start `nvim`
+1. _LazyVim_ based setup - [https://www.lazyvim.org/]
+   1. Just `mv .config/nvim $HOME/.config` and then start `nvim`
 1. In Wayland, install `wl-clipboard` to make system clipboard available
-1. Install the *JetBrains Mono* font for best experience in terms of icons:
+1. Install the _JetBrains Mono_ font for best experience in terms of icons:
 
 ```sh
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip                                                       3
