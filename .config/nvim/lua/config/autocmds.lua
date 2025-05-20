@@ -5,3 +5,7 @@ vim.api.nvim_command([[
 vim.api.nvim_command([[
   autocmd FileType md setlocal textwidth=80
 ]])
+
+vim.api.nvim_command([[
+  autocmd BufEnter *.rest set ft=http
+]])

@@ -365,4 +365,13 @@ return {
       { "<leader>ci", "<cmd>SortImports<CR>", desc = "Sort Imports" },
     },
   },
+
+  -- TEMP FIX for copilot: https://github.com/LazyVim/LazyVim/issues/5899
+  {
+    "zbirenbaum/copilot.lua",
+    optional = true,
+    opts = function()
+      require("copilot.api").status = require("copilot.status")
+    end,
+  },
 }
