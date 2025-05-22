@@ -366,12 +366,18 @@ return {
     },
   },
 
-  -- TEMP FIX for copilot: https://github.com/LazyVim/LazyVim/issues/5899
+  -- Set explicit models for Copilot
   {
     "zbirenbaum/copilot.lua",
     optional = true,
-    opts = function()
+    opts = function(_, opts)
+      -- TEMP FIX for copilot: https://github.com/LazyVim/LazyVim/issues/5899
       require("copilot.api").status = require("copilot.status")
+      opts.model = "claude-3.5-sonnet"
     end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    opts = { model = "claude-3.5-sonnet" },
   },
 }
