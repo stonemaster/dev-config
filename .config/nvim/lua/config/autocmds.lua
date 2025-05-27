@@ -9,3 +9,7 @@ vim.api.nvim_command([[
 vim.api.nvim_command([[
   autocmd BufEnter *.rest set ft=http
 ]])
+
+vim.api.nvim_command([[
+  autocmd BufEnter *.arb set ft=json
+]])

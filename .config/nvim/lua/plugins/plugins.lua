@@ -1,9 +1,12 @@
 return {
+  { "ellisonleao/gruvbox.nvim" },
+
   -- Configure LazyVim to load catppuccino-frappe colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-frappe",
+      -- catppuccin-frappe
+      colorscheme = "gruvbox",
     },
   },
 
