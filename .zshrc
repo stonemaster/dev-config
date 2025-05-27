@@ -115,6 +115,20 @@ function watson_report() {
 # Force nvim colour detection. Use with caution.
 export TERM=xterm-kitty
 
+# fg-bg toggle via c-z
+# from https://github.com/mdumitru/fancy-ctrl-z/blob/master/fancy-ctrl-z.zsh
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line -w
+  else
+    zle push-input -w
+    zle clear-screen -w
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Show task list if taskwarrior is installed.
 if command -v t &> /dev/null; then
   t ls
