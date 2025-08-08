@@ -17,29 +17,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- change some telescope options and a keymap to browse plugin files
-  {
-    "nvim-telescope/telescope.nvim",
-    -- keys = {
-    --   -- add a keymap to browse plugin files
-    --   -- stylua: ignore
-    --   {
-    --     "<leader>fp",
-    --     function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-    --     desc = "Find Plugin File",
-    --   },
-    -- },
-    -- change some options
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
-  },
-
   -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
   -- would overwrite `ensure_installed` with the new value.
   -- If you'd rather extend the default config, use the code below instead:
@@ -114,7 +91,8 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
+      -- Note: taken from https://github.com/NeogitOrg/neogit
+      "ibhagwan/fzf-lua",
     },
     config = true,
   },
@@ -155,7 +133,7 @@ return {
           -- 	open_cmd = "tabnew",
           -- },
         })
-        require("telescope").load_extension("flutter")
+        -- require("telescope").load_extension("flutter")
       end,
     },
   },
@@ -381,6 +359,9 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    opts = { model = "claude-3.5-sonnet" },
+    opts = {
+      model = "claude-3.7-sonnet",
+      sticky = "#buffers",
+    },
   },
 }

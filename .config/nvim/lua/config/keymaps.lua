@@ -7,3 +7,6 @@ vim.keymap.del("n", "Y")
 
 -- Ctrl+B for building
 vim.api.nvim_set_keymap("n", "<leader>cB", "<cmd>CMakeBuild<CR>", { desc = "Run CMake build" })
+
+-- Override ft keymap for floating terminal
+vim.api.nvim_set_keymap("n", "<C-\\>", "<cmd>lua Snacks.terminal(nil, { win = {position = \"float\"}})<CR>", { desc = "Open floating terminal" })
