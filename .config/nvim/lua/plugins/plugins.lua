@@ -121,28 +121,6 @@ return {
     },
   },
 
-  -- Flutter
-  {
-    "akinsho/flutter-tools.nvim",
-    event = "BufEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim", -- optional for vim.ui.select
-    },
-    opts = {
-      hooks = function()
-        require("flutter-tools").setup({
-          -- dev_log = {
-          -- 	enabled = true,
-          -- 	notify_errors = true,
-          -- 	open_cmd = "tabnew",
-          -- },
-        })
-        -- require("telescope").load_extension("flutter")
-      end,
-    },
-  },
-
   -- Telekasten
   {
     "renerocksai/telekasten.nvim",
@@ -352,69 +330,22 @@ return {
     },
   },
 
-  -- Set explicit models for Copilot
-  {
-    "zbirenbaum/copilot.lua",
-    optional = true,
-    opts = function(_, opts)
-      -- TEMP FIX for copilot: https://github.com/LazyVim/LazyVim/issues/5899
-      require("copilot.api").status = require("copilot.status")
-      opts.model = "claude-3.5-sonnet"
-    end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    opts = {
-      model = "claude-3.7-sonnet",
-      sticky = "#buffers",
-      mappings = {
-        show_diff = {
-          full_diff = true,
-        },
-      },
-    },
-  },
-
-  -- Kotlin support
-  {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
-  },
-  {
-    "AlexandrosAlexiou/kotlin.nvim",
-    ft = { "kotlin" },
-    dependencies = { "mason.nvim", "mason-lspconfig.nvim", "oil.nvim" },
-    config = function()
-      require("kotlin").setup({
-        -- Optional: Specify root markers for multi-module projects
-        root_markers = {
-          "gradlew",
-          -- ".git",
-          -- "mvnw",
-          -- "settings.gradle",
-        },
-        -- Optional: Specify a custom Java path to run the server
-        -- jre_path = os.getenv("JDK21"),
-        -- Optional: Specify additional JVM arguments
-        jvm_args = {
-          "-Xmx4g",
-        },
-      })
-    end,
-  },
-
   -- Quickfix List improvements
   {
     "kevinhwang91/nvim-bqf",
   },
   {
     "itchyny/vim-qfedit",
+  },
+
+  -- Noice override: show :make
+  -- commands in regular output window.
+  {
+    "folke/noice.nvim",
+    opts = {
+      messages = {
+        enabled = false,
+      },
+    },
   },
 }
