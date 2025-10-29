@@ -28,6 +28,9 @@ output * bg /usr/share/backgrounds/Numbat_wallpaper_dimmed_3480x2160.png fill
 
 include /etc/sway/config-vars.d/*
 
+# remap capslock to escape
+input "type:keyboard" xkb_options caps:swapescape
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)

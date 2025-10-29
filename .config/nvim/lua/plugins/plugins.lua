@@ -25,6 +25,8 @@ return {
           files = { hidden = true },
         },
         hidden = true, -- for hidden files
+        -- Fix error with value being nil
+        show_delay = 0,
         -- ignored = true, -- for .gitignore files
       },
     },
@@ -65,7 +67,7 @@ return {
 
   -- add any tools you want to have installed below
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "clangd",
