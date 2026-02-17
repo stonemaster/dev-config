@@ -19,6 +19,7 @@ return {
     config = true,
     keys = {
       { "<leader>Fr", "<cmd>FlutterRun<CR>", desc = "Flutter: Run" },
+      { "<leader>Fd", "<cmd>FlutterOpenDevTools<CR>", desc = "Flutter: Open Dev tools" },
       { "<leader>Fl", "<cmd>FlutterLogToggle<CR>", desc = "Flutter: Toggle logs" },
       { "<leader>Fh", "<cmd>FlutterReload<CR>", desc = "Flutter: Hot reload" },
       { "<leader>Fs", "<cmd>FlutterRestart<CR>", desc = "Flutter: Hot restart" },
@@ -39,13 +40,13 @@ return {
               enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
               background = true, -- highlight the background
               -- background_color = nil, -- required, when background is transparent (i.e. background_color = { r = 19, g = 17, b = 24},)
-              -- foreground = false, -- highlight the foreground
-              virtual_text = true, -- show the highlight using virtual text
-              virtual_text_str = "■", -- the virtual text character to highlight
+              -- foreground = true, -- highlight the foreground
+              --virtual_text = true, -- show the highlight using virtual text
+              --virtual_text_str = "■", -- the virtual text character to highlight
             },
-            settings = {
-              analysisExcludedFolders = {},
-            },
+            -- settings = {
+            --   analysisExcludedFolders = {},
+            -- },
           },
           -- dev_log = {
           -- 	enabled = true,
@@ -57,4 +58,12 @@ return {
       end,
     },
   },
+  -- {
+  --   "akinsho/pubspec-assist.nvim",
+  --   event = "BufEnter",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   config = true,
+  -- },
 }

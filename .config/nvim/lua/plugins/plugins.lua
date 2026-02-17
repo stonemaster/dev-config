@@ -82,14 +82,27 @@ return {
     },
   },
 
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     codelens = {
+  --       enabled = true,
+  --     },
+  --     kotlin_lsp = {
+  --       enabled = false,
+  --     },
+  --   },
+  -- },
+
   {
-    "neovim/nvim-lspconfig",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
-      codelens = {
-        enabled = true,
-      },
-      kotlin_lsp = {
-        enabled = false,
+      automatic_enable = {
+        -- We use other plugins to enable those.
+        exclude = {
+          "dartls",
+          "kotlin_lsp",
+        },
       },
     },
   },
@@ -398,4 +411,9 @@ return {
     "nextmn/vim-yaml-jinja",
   },
 
+  -- Prettify Logs.
+  {
+    "fei6409/log-highlight.nvim",
+    opts = {},
+  },
 }

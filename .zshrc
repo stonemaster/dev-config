@@ -1,3 +1,7 @@
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,7 +29,6 @@ export NVM_DIR="$HOME/.nvm"
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_TMUX_AUTOSTART=true
 
 plugins=(
   git
@@ -56,6 +59,7 @@ alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
 alias myip="curl -4 -s https://ifconfig.me"
 alias t="todo.sh -d $HOME/.todo-txt/config"
+alias copygitcommit="git log -1 | head -1 | cut -f2 -d' ' | tr -d $'\n' | wl-copy"
 
 function gitpurgemerged() {
   local origin=${1:-origin}
