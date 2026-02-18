@@ -6,13 +6,13 @@ return {
     optional = true,
     opts = function(_, opts)
       -- opts.model = "claude-sonnet-4"
-      opts.model = "gpt-5.2-codex"
+      opts.model = "gpt-5.3-codex"
     end,
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      model = "gpt-5.2-codex",
+      model = "gpt-5.3-codex",
       window = {
         -- layout = "float", -- 'vertical', 'horizontal', 'float'
         width = 0.5, -- 50% of screen width
@@ -32,14 +32,15 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+    keys = {
+      { "<leader>ac", "<cmd>CodeCompanionChat<CR>", desc = "Code CodeCompanion Chat" },
+    },
     opts = {
+      -- Github Copilot
+      --
       adapter = {
         name = "copilot",
-        model = "gpt-5.2-codex",
-      },
-      -- NOTE: The log_level is in `opts.opts`
-      opts = {
-        log_level = "DEBUG", -- or "TRACE"
+        model = "gpt-5.3-codex",
       },
     },
   },
