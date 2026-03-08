@@ -101,7 +101,7 @@ return {
         -- We use other plugins to enable those.
         exclude = {
           "dartls",
-          "kotlin_lsp",
+          -- "kotlin_lsp",
         },
       },
     },
@@ -155,7 +155,7 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("telekasten").setup({
-        home = vim.fn.expand("~/Documents/wiki"),
+        home = vim.env.WIKI_DIR,
         auto_set_syntax = false,
         auto_set_filetype = false,
         template_new_note = vim.fn.expand("~/.config/nvim/telekasten-new-note-template.md"),
@@ -415,5 +415,10 @@ return {
   {
     "fei6409/log-highlight.nvim",
     opts = {},
+  },
+
+  -- Linediff
+  {
+    "andrewradev/linediff.vim",
   },
 }

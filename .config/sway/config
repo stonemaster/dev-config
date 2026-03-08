@@ -306,6 +306,15 @@ mode $screenshot {
 }
 bindsym $mod+Print mode $screenshot
 
+#
+# Custom keys
+# {
+
+# Send back space button on Android emulator
+bindsym $mod+Shift+Backspace exec ~/Applications/Android/Sdk/platform-tools/adb shell input keyevent 4
+
+# }
+
 # # Allow to copy and print screen
 # bindsym Control+Print exec grimshot copy area
 

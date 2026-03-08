@@ -9,10 +9,12 @@ return {
       opts.model = "gpt-5.3-codex"
     end,
   },
+  -- GitHub Copilot
+  --
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      model = "gpt-5.3-codex",
+      model = "gpt-5.4",
       window = {
         -- layout = "float", -- 'vertical', 'horizontal', 'float'
         width = 0.5, -- 50% of screen width
@@ -22,6 +24,26 @@ return {
       mappings = {
         show_diff = {
           full_diff = true,
+        },
+      },
+      prompts = {
+        AddImports = {
+          prompt = "Add necessary imports to the current file.",
+        },
+      },
+      providers = {
+        llama = {
+          get_url = function(opts)
+            return "http://localhost:8001/v1/chat/completions"
+          end,
+          get_headers = function()
+            return { ["Authorization"] = "Bearer " .. "" }
+          end,
+          get_models = function()
+            return { { id = "llama", name = "Running locally on port 8001" } }
+          end,
+          prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
+          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
         },
       },
     },

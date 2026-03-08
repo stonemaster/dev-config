@@ -6,3 +6,5 @@ local ok, err = pcall(require, "config.local")
 if not ok then
   print("Error loading local config: " .. err)
 end
+
+require('wiki-sync')
