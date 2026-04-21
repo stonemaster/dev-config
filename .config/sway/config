@@ -313,8 +313,8 @@ bindsym $mod+Print mode $screenshot
 # Send back space button on Android emulator
 bindsym $mod+Shift+Backspace exec ~/Applications/Android/Sdk/platform-tools/adb shell input keyevent 4
 
-# Resize the current window to 60% of the screen width.
-bindsym $mod+Shift+t resize set width 60 ppt height 100 ppt
+# Resize the current window to 65% of the screen width.
+bindsym $mod+Shift+t resize set width 65 ppt height 100 ppt
 
 # }
 

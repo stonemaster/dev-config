@@ -57,7 +57,7 @@ fi
 alias icat="kitty +kitten icat"
 alias vimwiki="vim +VimwikiIndex"
 alias vim=nvim
-alias myip="curl -4 -s https://ifconfig.me"
+alias myip="curl -4 -s https://ifconfig.me; echo ""; curl -6 -s https://ifconfig.me"
 alias t="todo.sh -d $HOME/.todo-txt/config"
 alias copygitcommit="git log -1 | head -1 | cut -f2 -d' ' | tr -d $'\n' | wl-copy"
 

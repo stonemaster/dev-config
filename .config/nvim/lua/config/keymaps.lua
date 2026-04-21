@@ -5,8 +5,8 @@ vim.api.nvim_set_keymap("x", "<S-Tab>", "<gv", { desc = "Indent Right" })
 -- Restore normal VIM Y behavior (yank full line)
 vim.keymap.del("n", "Y")
 
--- Ctrl+B for building
-vim.api.nvim_set_keymap("n", "<leader>cB", "<cmd>CMakeBuild<CR>", { desc = "Run CMake build" })
+-- cB for building
+vim.api.nvim_set_keymap("n", "<leader>cB", "<cmd>:! buildtv tv<CR>", { desc = "Run 'buildtv tv'" })
 
 -- Override ft keymap for floating terminal
 vim.api.nvim_set_keymap(

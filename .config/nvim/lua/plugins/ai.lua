@@ -1,14 +1,14 @@
 local prefix = "<Leader>a"
 return {
   -- Set explicit models for Copilot
-  {
-    "zbirenbaum/copilot.lua",
-    optional = true,
-    opts = function(_, opts)
-      -- opts.model = "claude-sonnet-4"
-      opts.model = "gpt-5.3-codex"
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     -- opts.model = "claude-sonnet-4"
+  --     -- opts.model = "gpt-5.3-codex"
+  --   end,
+  -- },
   -- GitHub Copilot
   --
   {
@@ -24,6 +24,10 @@ return {
       mappings = {
         show_diff = {
           full_diff = true,
+        },
+        reset = {
+          normal = "<C-n>",
+          insert = "<C-n>",
         },
       },
       prompts = {

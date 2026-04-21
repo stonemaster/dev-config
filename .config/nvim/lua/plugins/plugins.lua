@@ -127,7 +127,11 @@ return {
       -- Note: taken from https://github.com/NeogitOrg/neogit
       "ibhagwan/fzf-lua",
     },
-    config = true,
+    opts = {
+      status = {
+        recent_commit_count = 100,
+      },
+    },
   },
 
   -- TMUX Navigation
