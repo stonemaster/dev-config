@@ -14,7 +14,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      model = "gpt-5.4",
+      model = "gpt-5.3-codex",
       window = {
         -- layout = "float", -- 'vertical', 'horizontal', 'float'
         width = 0.5, -- 50% of screen width
@@ -58,8 +58,15 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+    lazy = false,
+    -- Expand 'cc' into 'CodeCompanion' in the command line
+    init = function()
+      vim.cmd([[cab cc CodeCompanion]])
+    end,
     keys = {
-      { "<leader>ac", "<cmd>CodeCompanionChat<CR>", desc = "Code CodeCompanion Chat" },
+      { "<leader>ac", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Code CodeCompanion Chat" },
+      { "<leader>at", "<cmd>CodeCompanionActions<CR>", desc = "Code CodeCompanion Actions" },
+      { "ga", "<cmd>CodeCompanionChat Add<CR>", mode = "v", desc = "Code CodeCompanion Actions" },
     },
     opts = {
       -- Github Copilot

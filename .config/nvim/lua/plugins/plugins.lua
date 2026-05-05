@@ -69,6 +69,9 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
+      -- registries = {
+      --   "file:~/dev/opensource/mason-registry",
+      -- },
       ensure_installed = {
         "clangd",
         "flake8",
@@ -131,6 +134,9 @@ return {
       status = {
         recent_commit_count = 100,
       },
+    },
+    keys = {
+      { "<leader>gn", "<cmd>Neogit<CR>" },
     },
   },
 
@@ -424,5 +430,87 @@ return {
   -- Linediff
   {
     "andrewradev/linediff.vim",
+  },
+
+  -- MiniHarp
+  {
+    "vieitesss/miniharp.nvim",
+    version = "*", -- latest stable release
+    -- branch = 'main', -- latest nightly version
+    opts = {
+      autoload = true,
+      autosave = true,
+      show_on_autoload = false,
+      ui = {
+        position = "center", -- `top-left`, `top-right`, `bottom-left`, `bottom-right`.
+        show_hints = true,
+        enter = true, -- Whether to enter the floating window or not
+      },
+    },
+    keys = {
+      {
+        "<leader>h",
+        function()
+          require("miniharp").toggle_file()
+        end,
+        desc = "miniharp: toggle file mark",
+      },
+      {
+        "<C-n>",
+        function()
+          require("miniharp").next()
+        end,
+        desc = "miniharp: next file mark",
+      },
+      {
+        "<C-p>",
+        function()
+          require("miniharp").prev()
+        end,
+        desc = "miniharp: prev file mark",
+      },
+      {
+        "<leader>H",
+        function()
+          require("miniharp").show_list()
+        end,
+        desc = "miniharp: toggle marks list",
+      },
+      -- {
+      --   "<leader>H",
+      --   function()
+      --     require("miniharp").enter_list()
+      --   end,
+      --   desc = "miniharp: enter marks list",
+      -- },
+      {
+        "<leader>1",
+        function()
+          require("miniharp").go_to(1)
+        end,
+        desc = "miniharp: go to mark 1",
+      },
+      {
+        "<leader>2",
+        function()
+          require("miniharp").go_to(2)
+        end,
+        desc = "miniharp: go to mark 2",
+      },
+      {
+        "<leader>3",
+        function()
+          require("miniharp").go_to(3)
+        end,
+        desc = "miniharp: go to mark 3",
+      },
+      {
+        "<leader>4",
+        function()
+          require("miniharp").go_to(4)
+        end,
+        desc = "miniharp: go to mark 4",
+      },
+    },
   },
 }
