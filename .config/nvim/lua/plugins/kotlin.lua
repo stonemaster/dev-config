@@ -1,4 +1,15 @@
-return {}
+return {
+  {
+    "iamironz/android-nvim-plugin",
+    lazy = false,
+    config = function()
+      require("android").setup()
+    end,
+    keys = {
+      { "<leader>kl", ":AndroidLogcat<CR>", desc = "Show adb logcat" },
+    },
+  },
+}
 -- return {
 --   -- Kotlin support
 --   {
