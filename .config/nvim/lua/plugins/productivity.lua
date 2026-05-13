@@ -97,6 +97,12 @@ return {
     },
   },
 
+  -- Precognition Jump marks
+  -- {
+  --   "tris203/precognition.nvim",
+  --   opts = {}
+  -- },
+
   -- MiniHarp
   -- {
   --   "vieitesss/miniharp.nvim",
