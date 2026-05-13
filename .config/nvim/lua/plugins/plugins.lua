@@ -119,27 +119,6 @@ return {
     end,
   },
 
-  -- Neogit
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      -- Note: taken from https://github.com/NeogitOrg/neogit
-      "ibhagwan/fzf-lua",
-    },
-    opts = {
-      status = {
-        recent_commit_count = 100,
-      },
-    },
-    keys = {
-      { "<leader>gn", "<cmd>Neogit<CR>" },
-    },
-  },
-
   -- TMUX Navigation
   {
     "christoomey/vim-tmux-navigator",
@@ -206,74 +185,6 @@ return {
       "RainbowMultiDelim",
     },
   },
-  -- {
-  --   "hat0uma/csvview.nvim",
-  --   opts = {
-  --     parser = { comments = { "#", "//" } },
-  --     keymaps = {
-  --       -- Text objects for selecting fields
-  --       textobject_field_inner = { "if", mode = { "o", "x" } },
-  --       textobject_field_outer = { "af", mode = { "o", "x" } },
-  --       -- Excel-like navigation:
-  --       -- Use <Tab> and <S-Tab> to move horizontally between fields.
-  --       -- Use <Enter> and <S-Enter> to move vertically between rows and place the cursor at the end of the field.
-  --       -- Note: In terminals, you may need to enable CSI-u mode to use <S-Tab> and <S-Enter>.
-  --       jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
-  --       jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
-  --       jump_next_row = { "<Enter>", mode = { "n", "v" } },
-  --       jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
-  --     },
-  --   },
-  --   cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
-  --   ft = {
-  --     "csv",
-  --     "tsv",
-  --     "csv_semicolon",
-  --     "csv_whitespace",
-  --     "csv_pipe",
-  --     "rfc_csv",
-  --     "rfc_semicolon",
-  --   },
-  -- },
-
-  -----------------------------------------------------------------------------
-  -- Interacting with and manipulating marks
-  {
-    "chentoast/marks.nvim",
-    event = "FileType",
-    keys = {
-      { "m/", "<cmd>MarksListAll<CR>", desc = "Marks from all opened buffers" },
-    },
-    opts = {
-      sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
-      bookmark_1 = { sign = "󰈼" }, -- ⚐ ⚑ 󰈻 󰈼 󰈽 󰈾 󰈿 󰉀
-      mappings = {
-        annotate = "m<Space>",
-      },
-    },
-  },
-
-  -- AnyJump, finding reference using <leader>ii
-  {
-    "pechorin/any-jump.vim",
-    cmd = { "AnyJump", "AnyJumpVisual" },
-    keys = {
-      { "<leader>ii", "<cmd>AnyJump<CR>", desc = "Any Jump" },
-      { "<leader>ii", "<cmd>AnyJumpVisual<CR>", mode = "x", desc = "Any Jump" },
-      { "<leader>ib", "<cmd>AnyJumpBack<CR>", desc = "Any Jump Back" },
-      { "<leader>il", "<cmd>AnyJumpLastResults<CR>", desc = "Any Jump Resume" },
-    },
-    init = function()
-      vim.g.any_jump_disable_default_keybindings = 1
-      vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("rafi_any-jump", {}),
-        pattern = "any-jump",
-        callback = function()
-          vim.opt.cursorline = true
-        end,
-      })
-    end,
-  },
 
   -- Highlight colors in hex
   {
@@ -281,39 +192,6 @@ return {
     event = "BufRead",
     config = function()
       require("colorizer").setup()
-    end,
-  },
-
-  -- Pleasant Git commit messages
-  {
-    "rhysd/committia.vim",
-    -- Taken from rafi/vim-config
-    event = "BufReadPre COMMIT_EDITMSG",
-    init = function()
-      -- See: https://github.com/rhysd/committia.vim#variables
-      vim.g.committia_min_window_width = 30
-      vim.g.committia_edit_window_width = 75
-    end,
-    config = function()
-      vim.g.committia_hooks = {
-        edit_open = function()
-          vim.cmd.resize(10)
-          local opts = {
-            buffer = vim.api.nvim_get_current_buf(),
-            silent = true,
-          }
-          local function map(mode, lhs, rhs)
-            vim.keymap.set(mode, lhs, rhs, opts)
-          end
-          map("n", "q", "<cmd>quit<CR>")
-          map("i", "<C-d>", "<Plug>(committia-scroll-diff-down-half)")
-          map("i", "<C-u>", "<Plug>(committia-scroll-diff-up-half)")
-          map("i", "<C-f>", "<Plug>(committia-scroll-diff-down-page)")
-          map("i", "<C-b>", "<Plug>(committia-scroll-diff-up-page)")
-          map("i", "<C-j>", "<Plug>(committia-scroll-diff-down)")
-          map("i", "<C-k>", "<Plug>(committia-scroll-diff-up)")
-        end,
-      }
     end,
   },
 
@@ -430,87 +308,5 @@ return {
   -- Linediff
   {
     "andrewradev/linediff.vim",
-  },
-
-  -- MiniHarp
-  {
-    "vieitesss/miniharp.nvim",
-    version = "*", -- latest stable release
-    -- branch = 'main', -- latest nightly version
-    opts = {
-      autoload = true,
-      autosave = true,
-      show_on_autoload = false,
-      ui = {
-        position = "center", -- `top-left`, `top-right`, `bottom-left`, `bottom-right`.
-        show_hints = true,
-        enter = true, -- Whether to enter the floating window or not
-      },
-    },
-    keys = {
-      {
-        "<leader>h",
-        function()
-          require("miniharp").toggle_file()
-        end,
-        desc = "miniharp: toggle file mark",
-      },
-      {
-        "<C-n>",
-        function()
-          require("miniharp").next()
-        end,
-        desc = "miniharp: next file mark",
-      },
-      {
-        "<C-p>",
-        function()
-          require("miniharp").prev()
-        end,
-        desc = "miniharp: prev file mark",
-      },
-      {
-        "<leader>H",
-        function()
-          require("miniharp").show_list()
-        end,
-        desc = "miniharp: toggle marks list",
-      },
-      -- {
-      --   "<leader>H",
-      --   function()
-      --     require("miniharp").enter_list()
-      --   end,
-      --   desc = "miniharp: enter marks list",
-      -- },
-      {
-        "<leader>1",
-        function()
-          require("miniharp").go_to(1)
-        end,
-        desc = "miniharp: go to mark 1",
-      },
-      {
-        "<leader>2",
-        function()
-          require("miniharp").go_to(2)
-        end,
-        desc = "miniharp: go to mark 2",
-      },
-      {
-        "<leader>3",
-        function()
-          require("miniharp").go_to(3)
-        end,
-        desc = "miniharp: go to mark 3",
-      },
-      {
-        "<leader>4",
-        function()
-          require("miniharp").go_to(4)
-        end,
-        desc = "miniharp: go to mark 4",
-      },
-    },
   },
 }
